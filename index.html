@@ -10,14 +10,18 @@
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#070b14">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="extras.css">
 </head>
 <body>
 <div class="bg-grid" aria-hidden="true"></div>
+<div class="orb o1" aria-hidden="true"></div><div class="orb o2" aria-hidden="true"></div><div class="orb o3" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
 
 <header class="nav" id="top">
   <a class="brand" href="#top"><span class="mono-dot"></span>Anushka Mishra</a>
   <nav>
     <a href="#build">What I build</a>
+    <a href="#tools">Tools</a>
     <a href="#demo">Live demo</a>
     <a href="#proof">Proof</a>
     <a href="#judgment">Judgment</a>
@@ -30,12 +34,40 @@
 <main>
 <!-- HERO -->
 <section class="hero">
-  <p class="eyebrow">GTM Engineer &middot; GTM Engineer School, Cohort 5 &middot; open to full-time roles</p>
-  <h1>I build GTM systems that turn signals into pipeline, <span class="grad">with the guardrails built in.</span></h1>
-  <p class="lead">Engineer turned analyst turned GTM engineer. Inbound today, outbound and campaigns next. I combine production engineering at Nagarro, revenue analytics, and a data-science master's at IIM Indore &amp; IIT Indore to build systems that are fast, measurable and safe to trust.</p>
-  <div class="cta-row">
-    <a class="btn" href="#demo">Try a live build &rarr;</a>
-    <a class="btn btn-ghost" href="#contact" data-cta="hire">Book a 30-min call</a>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">GTM Engineer &middot; GTM Engineer School, Cohort 5 &middot; open to full-time roles</p>
+      <h1>I build GTM systems that turn signals into pipeline, <span class="grad">with the guardrails built in.</span></h1>
+      <p class="now">Now building&nbsp;<span class="rot" id="rot">inbound engines</span><span class="caret"></span></p>
+      <p class="lead">Engineer turned analyst turned GTM engineer. I combine production engineering at Nagarro, revenue analytics, and a data-science master's at IIM Indore &amp; IIT Indore to build systems that are fast, measurable and safe to trust.</p>
+      <div class="cta-row">
+        <a class="btn" href="#demo">Try a live build &rarr;</a>
+        <a class="btn btn-ghost" href="#contact" data-cta="hire">Book a 30-min call</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 440 460" class="pipe">
+        <defs>
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <circle cx="220" cy="230" r="196" class="ring r1"/><circle cx="220" cy="230" r="150" class="ring r2"/>
+        <path id="trunk" d="M220 62 V410" class="trunk"/>
+        <path d="M220 62 V410" class="trunk flow"/>
+        <g filter="url(#glow)">
+          <circle r="5" fill="#5eead4"><animateMotion dur="3.6s" repeatCount="indefinite" begin="0s"><mpath href="#trunk"/></animateMotion></circle>
+          <circle r="5" fill="#818cf8"><animateMotion dur="3.6s" repeatCount="indefinite" begin="1.2s"><mpath href="#trunk"/></animateMotion></circle>
+          <circle r="5" fill="#fbbf24"><animateMotion dur="3.6s" repeatCount="indefinite" begin="2.4s"><mpath href="#trunk"/></animateMotion></circle>
+        </g>
+        <g class="hn" style="--d:0s"><rect x="120" y="30" width="200" height="50" rx="14"/><text x="220" y="52" class="t1">Signals</text><text x="220" y="69" class="t2">job posts &#183; site visits &#183; filings</text></g>
+        <g class="hn" style="--d:1.2s"><rect x="120" y="118" width="200" height="50" rx="14"/><text x="220" y="140" class="t1">Clay + Sumble</text><text x="220" y="157" class="t2">enrich &#183; match ICP</text></g>
+        <g class="hn" style="--d:2.4s"><rect x="120" y="206" width="200" height="50" rx="14"/><text x="220" y="228" class="t1">Rules engine</text><text x="220" y="245" class="t2">score &#183; route &#183; reply clock</text></g>
+        <g class="hn" style="--d:3.6s"><rect x="120" y="294" width="200" height="50" rx="14"/><text x="220" y="316" class="t1">Draft + claims check</text><text x="220" y="333" class="t2">approved wording only</text></g>
+        <g class="hn human" style="--d:4.8s"><rect x="120" y="382" width="200" height="50" rx="14"/><text x="220" y="404" class="t1">A person sends</text><text x="220" y="421" class="t2">meeting booked in HubSpot</text></g>
+        <g class="chip c1"><rect x="14" y="96" width="92" height="26" rx="13"/><text x="60" y="113">intent signal</text></g>
+        <g class="chip c2"><rect x="338" y="184" width="88" height="26" rx="13"/><text x="382" y="201">ICP fit 92</text></g>
+        <g class="chip c3"><rect x="334" y="338" width="96" height="26" rx="13"/><text x="382" y="355">lint: clean</text></g>
+      </svg>
+    </div>
   </div>
   <ul class="stats" id="stats">
     <li><b data-count="1" data-prefix="$" data-suffix="M+">0</b><span>measured yearly savings from an inventory model</span></li>
@@ -44,6 +76,12 @@
     <li><b data-count="23" data-suffix="">0</b><span>edge cases re-checked against the sponsor's written answers</span></li>
   </ul>
 </section>
+
+<!-- TOOL TICKER -->
+<div class="ticker" aria-label="Tools I have used">
+  <div class="track" id="track"></div>
+  <div class="track rev" id="track2"></div>
+</div>
 
 <!-- WHAT I BUILD -->
 <section id="build" class="section">
@@ -71,6 +109,26 @@
       <p>Applying my forecasting and revenue-analysis background to campaign measurement: which triggers and messages actually book meetings.</p>
       <a href="#proof">See the analytics work &rarr;</a>
     </article>
+  </div>
+</section>
+
+<!-- MOTION EXPLORER -->
+<section id="motion" class="section">
+  <div class="section-head">
+    <p class="eyebrow">How I think</p>
+    <h2>One system per motion. Same discipline.</h2>
+    <p class="sub">Pick a motion to see how data flows through it, and where a human stays in control.</p>
+  </div>
+  <div class="tabs" role="tablist" id="tabs">
+    <button role="tab" class="tab on" data-m="inbound">Inbound</button>
+    <button role="tab" class="tab" data-m="outbound">Outbound</button>
+    <button role="tab" class="tab" data-m="campaigns">Campaigns</button>
+  </div>
+  <div class="panel motion">
+    <div class="motion-top"><span class="status" id="m-status"></span><h3 id="m-title"></h3></div>
+    <p id="m-desc" class="m-desc"></p>
+    <div class="m-flow" id="m-flow"></div>
+    <div class="m-foot"><div><b>Human in the loop</b><span id="m-human"></span></div><div><b>Tools</b><span id="m-tools"></span></div><div><b>Success measure</b><span id="m-kpi"></span></div></div>
   </div>
 </section>
 
@@ -181,6 +239,36 @@
   </div>
 </section>
 
+<section class="section tight" id="impact">
+  <div class="section-head"><p class="eyebrow">Impact, drawn</p><h2>The numbers behind the stories.</h2></div>
+  <div class="charts">
+    <div class="panel chart">
+      <h3>Demand-planning accuracy</h3>
+      <svg viewBox="0 0 200 200" class="gauge">
+        <circle cx="100" cy="100" r="78" class="g-track"/>
+        <circle cx="100" cy="100" r="78" class="g-arc before" style="--p:60"/>
+        <circle cx="100" cy="100" r="58" class="g-track thin"/>
+        <circle cx="100" cy="100" r="58" class="g-arc after" style="--p:85"/>
+        <text x="100" y="98" class="g-big">~85%</text><text x="100" y="120" class="g-small">from 60%</text>
+      </svg>
+      <p class="fine">Outer ring: before (60%). Inner ring: after (~85%). Forecasting models on 3+ years of sales data across 1,000+ SKUs.</p>
+    </div>
+    <div class="panel chart">
+      <h3>Catalog load time, to scale</h3>
+      <div class="hbar"><span>Manual (about a month)</span><i style="--w:100%" class="bad"></i><em>~30 days</em></div>
+      <div class="hbar"><span>Automated pipeline</span><i style="--w:.6%" class="good"></i><em>&le;4 hrs</em></div>
+      <p class="fine">Drawn to scale: the automated bar is a sliver, under 1% of the manual one. Validation, repair of structural drift and parking of records that need client feedback are all included.</p>
+    </div>
+    <div class="panel chart">
+      <h3>What moved</h3>
+      <div class="hbar"><span>Stockouts</span><i style="--w:35%" class="good"></i><em>&minus;35%</em></div>
+      <div class="hbar"><span>Excess stock</span><i style="--w:28%" class="good"></i><em>&minus;28%</em></div>
+      <div class="hbar"><span>Recurring reporting effort</span><i style="--w:20%" class="good"></i><em>&minus;20%</em></div>
+      <p class="fine">Nagarro inventory optimization and Orange Business Services KPI reporting.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ENGINE -->
 <section id="engine" class="section">
   <div class="section-head">
@@ -241,6 +329,16 @@
     <h3>The honest limits</h3>
     <p>Tested on invented enquiries with five pieces of fundamental feedback handled (four changed the project, one I pushed back on with a reason). <b>No real user has tried it yet</b>, because the client's site had no inbound traffic and real data needed written permission. I would rather say that than inflate it.</p>
   </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools" class="section">
+  <div class="section-head">
+    <p class="eyebrow">Tools I've used</p>
+    <h2>The stack, and what I did with each tool.</h2>
+    <p class="sub">Only tools I have actually used, with where I used them.</p>
+  </div>
+  <div class="toolgrid" id="toolgrid"></div>
 </section>
 
 <!-- CREDENTIALS -->
@@ -322,5 +420,6 @@
 </footer>
 
 <script src="app.js"></script>
+<script src="extras.js"></script>
 </body>
 </html>
