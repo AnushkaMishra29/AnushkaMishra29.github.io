@@ -125,3 +125,24 @@ h3{margin:0 0 10px;font-size:19px}
   .reveal{opacity:1;transform:none}
   html{scroll-behavior:auto}
 }
+
+/* lanes, credentials, reviews */
+.lanes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
+.lane{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:6px}
+.lane p{color:var(--muted);font-size:15px;margin:4px 0 10px;flex:1}
+.lane a{color:var(--acc);text-decoration:none;font-weight:600;font-size:14px}
+.lane a:hover{text-decoration:underline}
+.status{display:inline-block;align-self:flex-start;font:600 11px ui-monospace,Consolas,monospace;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;border:1px solid;margin-bottom:8px}
+.status.shipped{color:var(--ok);border-color:var(--ok)}
+.status.progress{color:var(--warn);border-color:var(--warn)}
+.status.next{color:var(--acc2);border-color:var(--acc2)}
+.creds{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:center}
+.cert{margin:0}
+.cert img{width:100%;height:auto;display:block;border-radius:var(--r);border:1px solid var(--line);transition:transform .2s,box-shadow .2s}
+.cert a:hover img{transform:translateY(-3px);box-shadow:0 12px 40px rgba(244,114,182,.18)}
+.cred-list{display:grid;gap:16px}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px}
+.review{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:var(--r);padding:24px}
+.review p{font-size:17px;color:var(--text);margin:0 0 14px}
+.review cite{font-style:normal;color:var(--muted);font-size:14px}
+@media (max-width:860px){.creds{grid-template-columns:1fr}}

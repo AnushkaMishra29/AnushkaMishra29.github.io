@@ -8,7 +8,10 @@ const CONFIG = {
   github: "",     // e.g. https://github.com/yourname
   // Capstone client is anonymised. Replace once you have written permission to name them.
   clientName: "Tallpine",
-  senderName: "the approver"
+  senderName: "the approver",
+  // Add quotes once you have written OK from the person. Section stays hidden while empty.
+  // { quote: "...", name: "Full Name", role: "Title, Organization" }
+  reviews: []
 };
 
 /* ---- Contact buttons ---- */
@@ -28,9 +31,22 @@ const CONFIG = {
   document.getElementById("yr").textContent = new Date().getFullYear();
 })();
 
+/* ---- Reviews (hidden until configured) ---- */
+(function reviews(){
+  if(!CONFIG.reviews.length) return;
+  const list=document.getElementById("review-list");
+  CONFIG.reviews.forEach(r=>{
+    const f=document.createElement("figure");f.className="review";f.style.margin=0;
+    const p=document.createElement("p");p.textContent="“"+r.quote+"”";
+    const c=document.createElement("cite");c.textContent=r.name+(r.role?", "+r.role:"");
+    f.append(p,c);list.append(f);
+  });
+  document.getElementById("reviews").classList.remove("hidden");
+})();
+
 /* ---- Scroll reveal, counters, bars ---- */
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-document.querySelectorAll(".section-head,.card,.panel,.principles li,.stats li,.flow").forEach(el => el.classList.add("reveal"));
+document.querySelectorAll(".section-head,.card,.panel,.lane,.cert,.review,.principles li,.stats li,.flow").forEach(el => el.classList.add("reveal"));
 const io = new IntersectionObserver(es => es.forEach(e => {
   if (!e.isIntersecting) return;
   e.target.classList.add("in");
