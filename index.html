@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anushka Mishra | GTM Engineer</title>
+<meta name="description" content="GTM engineer who builds revenue systems that answer every buyer within a day, never send a bad email, and prove their numbers. Data-science background, $1M+ in measured savings, live demo inside.">
+<meta property="og:title" content="Anushka Mishra | GTM Engineer">
+<meta property="og:description" content="Revenue systems with guardrails. Try the live inbound engine demo.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#070b14">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-grid" aria-hidden="true"></div>
+
+<header class="nav" id="top">
+  <a class="brand" href="#top"><span class="mono-dot"></span>Anushka Mishra</a>
+  <nav>
+    <a href="#demo">Live demo</a>
+    <a href="#proof">Proof</a>
+    <a href="#engine">The engine</a>
+    <a href="#judgment">Judgment</a>
+    <a href="#about">About</a>
+    <a class="btn btn-small" href="#contact" data-cta="hire">Let's talk</a>
+  </nav>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  <p class="eyebrow">GTM Engineer &middot; open to full-time roles</p>
+  <h1>I build revenue systems that answer every buyer in a day, <span class="grad">and never send a bad email.</span></h1>
+  <p class="lead">Two years shipping production software at Nagarro, a data-science master's at IIM Indore &amp; IIT Indore, and a GTM capstone engine that routes, drafts and safety-checks replies. I turn messy data into decisions, and decisions into pipeline.</p>
+  <div class="cta-row">
+    <a class="btn" href="#demo">Try the live engine &rarr;</a>
+    <a class="btn btn-ghost" href="#contact" data-cta="hire">Book a 30-min call</a>
+  </div>
+  <ul class="stats" id="stats">
+    <li><b data-count="1" data-prefix="$" data-suffix="M+">0</b><span>measured yearly savings from an inventory model</span></li>
+    <li><b data-count="85" data-prefix="~" data-suffix="%">0</b><span>demand-planning accuracy, up from 60%; stockouts down 35%</span></li>
+    <li><b data-count="4" data-prefix="&le;" data-suffix=" hrs">0</b><span>for a catalog load that took ~1 month by hand</span></li>
+    <li><b data-count="23" data-suffix="">0</b><span>edge cases re-checked against the sponsor's written answers</span></li>
+  </ul>
+</section>
+
+<!-- DEMO -->
+<section id="demo" class="section">
+  <div class="section-head">
+    <p class="eyebrow">Interactive</p>
+    <h2>Break my inbound engine.</h2>
+    <p class="sub">Submit an invented enquiry and watch it matched, routed, put on a reply clock, drafted and safety-checked. A person always presses send. Edit the draft to trip the claims linter.</p>
+  </div>
+
+  <div class="demo">
+    <form id="enq" class="panel form" autocomplete="off">
+      <h3>1 &middot; An enquiry arrives</h3>
+      <label>Form
+        <select id="f-type">
+          <option value="demo">Demo request</option>
+          <option value="briefing">Executive briefing request</option>
+          <option value="contact">Contact form</option>
+          <option value="partner">Partner enquiry</option>
+          <option value="whitepaper">Whitepaper download</option>
+          <option value="nda">NDA request</option>
+        </select>
+      </label>
+      <label>Company (invented)
+        <select id="f-co"></select>
+      </label>
+      <label>Name
+        <input id="f-name" value="Jordan Lee" maxlength="40">
+      </label>
+      <label>Their message
+        <textarea id="f-msg" rows="3" maxlength="240">How do you prove AI value to our finance team?</textarea>
+      </label>
+      <div class="two">
+        <label>Arrives on
+          <select id="f-day">
+            <option value="1">Monday</option><option value="2">Tuesday</option><option value="3">Wednesday</option>
+            <option value="4">Thursday</option><option value="5" selected>Friday</option><option value="6">Saturday</option><option value="0">Sunday</option>
+          </select>
+        </label>
+        <label>At (Pacific)
+          <select id="f-hour"></select>
+        </label>
+      </div>
+      <button class="btn" type="submit">Run the engine</button>
+      <p class="fine">Everything here is simulated in your browser with invented companies and rules that mirror the real engine's structure. No data leaves the page.</p>
+    </form>
+
+    <div class="panel out" id="out" aria-live="polite">
+      <h3>2 &middot; What the engine decides</h3>
+      <ol class="steps" id="steps">
+        <li data-s="match"><i></i><div><b>Match company</b><span>waiting</span></div></li>
+        <li data-s="route"><i></i><div><b>Route to an owner</b><span>waiting</span></div></li>
+        <li data-s="sla"><i></i><div><b>Start the reply clock</b><span>waiting</span></div></li>
+        <li data-s="draft"><i></i><div><b>Draft from approved wording</b><span>waiting</span></div></li>
+        <li data-s="lint"><i></i><div><b>Claims linter</b><span>waiting</span></div></li>
+      </ol>
+      <div id="draftbox" class="draftbox hidden">
+        <div class="draft-top"><b>3 &middot; Draft staged for a person</b><span id="lintbadge" class="badge">unchecked</span></div>
+        <textarea id="draft" rows="9"></textarea>
+        <div class="draft-actions">
+          <button class="btn btn-small btn-ghost" id="relint" type="button">Re-run linter</button>
+          <button class="btn btn-small" id="approve" type="button">Approve</button>
+          <button class="btn btn-small btn-ghost" id="send" type="button" disabled title="Only a human sends, by design">Send (human only)</button>
+        </div>
+        <p id="status" class="fine"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section id="proof" class="section">
+  <div class="section-head">
+    <p class="eyebrow">Proof</p>
+    <h2>Outcomes first. Tools second.</h2>
+    <p class="sub">Four systems, each with the problem, what I built, and what changed.</p>
+  </div>
+  <div class="cards">
+    <article class="card">
+      <span class="tag">Nagarro &middot; Data &amp; forecasting</span>
+      <h3>Inventory model that found $1M+ a year</h3>
+      <p><b>Problem.</b> Excess stock and stockouts at the same time, across 1,000+ SKUs.</p>
+      <p><b>Built.</b> A Power BI dashboard plus a Python forecasting model on 3+ years of sales data. My manager and stakeholders acted on it.</p>
+      <p class="result"><b>Result.</b> Demand-planning accuracy up from 60% to ~85%, excess stock &minus;28%, stockouts &minus;35%, $1M+ yearly profit impact.</p>
+    </article>
+    <article class="card">
+      <span class="tag">Nagarro &middot; Automation</span>
+      <h3>XML catalog pipeline: ~1 month &rarr; &le;4 hours</h3>
+      <p><b>Problem.</b> Client catalogs (specs, pricing, categories, installations) arrived as XML that differed from our database in names, structure, units and gaps. Reconciling by hand took about a month.</p>
+      <p><b>Built.</b> Validates every field, repairs structural drift, parks records that need client feedback, and loads the clean rest.</p>
+      <p class="result"><b>Result.</b> One full load in 4 hours at most. Still used by the team today.</p>
+    </article>
+    <article class="card">
+      <span class="tag">Orange Business Services &middot; Revenue ops</span>
+      <h3>Order-to-cash clarity across 8 platforms</h3>
+      <p><b>Problem.</b> Quote, order, provisioning, usage, billing and revenue lived in separate internal systems.</p>
+      <p><b>Built.</b> SQL extracts and Power BI / Excel / Access reporting that compared customer revenue with carrier cost, flagging services where cost weakened profitability for pricing review.</p>
+      <p class="result"><b>Result.</b> ~20% less effort on recurring KPI reporting and a consistent view for pricing and monetization decisions.</p>
+    </article>
+    <article class="card">
+      <span class="tag">Capstone &middot; GTM engineering</span>
+      <h3>An inbound engine with guardrails</h3>
+      <p><b>Problem.</b> Slow, uneven replies to buyers who already raised a hand.</p>
+      <p><b>Built.</b> Match, route, reply clock, draft and claims linter, wired through a CRM, with a person approving every send.</p>
+      <p class="result"><b>Result.</b> A drafted reply inside one business day or an alarm fires. Built for an early-stage enterprise-AI company; applauded at Demo Day.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ENGINE -->
+<section id="engine" class="section">
+  <div class="section-head">
+    <p class="eyebrow">Architecture</p>
+    <h2>How one enquiry flows.</h2>
+    <p class="sub">Deterministic where it must be, generative only where it is safe. No language model decides a route.</p>
+  </div>
+  <div class="flow" id="flow">
+    <div class="node"><b>Form</b><span>6 enquiry types</span></div>
+    <div class="arrow"></div>
+    <div class="node"><b>CRM</b><span>system of record</span></div>
+    <div class="arrow"></div>
+    <div class="node hot"><b>Rules engine</b><span>match &middot; route &middot; clock</span></div>
+    <div class="arrow"></div>
+    <div class="node"><b>Draft</b><span>approved wording</span></div>
+    <div class="arrow"></div>
+    <div class="node hot"><b>Claims linter</b><span>fails closed</span></div>
+    <div class="arrow"></div>
+    <div class="node human"><b>A person</b><span>reviews &amp; sends</span></div>
+  </div>
+  <ul class="principles">
+    <li><b>Rules live in versioned files.</b> Every decision returns a plain-English explanation and the rule version it used. Changing a rule goes through a decision log, tests, and saved evidence.</li>
+    <li><b>Never sends.</b> The engine stages drafts. Approval and sent are timestamped separately.</li>
+    <li><b>Fails closed.</b> If the blocklist is missing, nothing is marked clean. A late or failed run is caught by a watchdog.</li>
+    <li><b>Privacy by design.</b> Person-level identification is dropped at ingest. Only company-level signals are stored or scored.</li>
+  </ul>
+</section>
+
+<!-- JUDGMENT -->
+<section id="judgment" class="section">
+  <div class="section-head">
+    <p class="eyebrow">Judgment</p>
+    <h2>I test tools, and I say when they fail.</h2>
+  </div>
+  <div class="two-col">
+    <div class="panel">
+      <h3>I tried an AI writer. I switched it off.</h3>
+      <p>Given the approved draft to polish, it dropped the slot a person must fill, removed the briefing ask, added a question of its own and changed a claim. My guards refused every rewrite, so the approved template stayed the draft. That is the guard working.</p>
+      <table class="mini">
+        <tr><th>Approved draft</th><th>AI rewrite</th></tr>
+        <tr><td>Reviewer slot to answer their question</td><td>Gone</td></tr>
+        <tr><td>30-minute briefing ask</td><td>Gone</td></tr>
+        <tr><td>&mdash;</td><td>New closing question</td></tr>
+        <tr><td>"gates that can refuse"</td><td>"&hellip;refuse entry" (claim changed)</td></tr>
+      </table>
+    </div>
+    <div class="panel">
+      <h3>I checked whether to trust the data.</h3>
+      <p>I compared two revenue sources across 110 companies. For public companies they agreed closely (78% within 10%, 90% in the same revenue band). For non-profit health systems they diverged widely, most likely because one filing covers a single legal entity and the other a whole system. I flagged that as a hypothesis to verify, not a fact.</p>
+      <div class="bars">
+        <div><span>Public companies</span><i style="--w:78%"></i><em>78%</em></div>
+        <div><span>Non-profit systems</span><i style="--w:37%"></i><em>37%</em></div>
+      </div>
+      <p class="fine">Share of companies within 10% across the two sources.</p>
+    </div>
+  </div>
+  <div class="panel honest">
+    <h3>The honest limits</h3>
+    <p>Tested on invented enquiries with five pieces of fundamental feedback handled (four changed the project, one I pushed back on with a reason). <b>No real user has tried it yet</b>, because the client's site had no inbound traffic and real data needed written permission. I would rather say that than inflate it.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="section-head">
+    <p class="eyebrow">About</p>
+    <h2>Engineer who reads the P&amp;L.</h2>
+  </div>
+  <div class="about">
+    <div class="about-text">
+      <p>I started as a full-stack engineer (.NET, Angular, SQL) building configurators for 30,000+ SKUs. I moved into analytics because the best engineering question is usually a business question: where is money leaking? I then went deep on revenue-versus-cost at a telecom, and now I am completing an MS in Data Science &amp; Management at IIM Indore and IIT Indore.</p>
+      <p>GTM engineering is where those threads meet: systems thinking, clean data, and a measurable commercial outcome.</p>
+      <div class="chips">
+        <span>Python</span><span>SQL</span><span>Power BI</span><span>.NET / Angular</span><span>HubSpot</span><span>Clay</span><span>Sumble</span><span>Octave</span><span>Swan</span><span>Claude Code</span><span>Git &amp; CI</span>
+      </div>
+    </div>
+    <ul class="timeline">
+      <li><b>2025 &ndash; 2027</b><span>MS Data Science &amp; Management, IIM Indore &amp; IIT Indore</span></li>
+      <li><b>Aug &ndash; Oct 2025</b><span>Business Data Analyst, Orange Business Services</span></li>
+      <li><b>2022 &ndash; 2024</b><span>Engineer, Nagarro. 3&times; Excellence Award, NAGP programme</span></li>
+      <li><b>Research</b><span>Built ML models to detect and mitigate bias in AI resume screening, with fairness metrics evaluated on a large dataset. 4,100+ abstract views, 500+ downloads</span></li>
+      <li><b>Project</b><span>Global Superstore EDA: revenue trends, profit leakage and regional performance gaps</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section contact">
+  <h2>Hiring a GTM engineer?</h2>
+  <p class="sub">I will bring the systems thinking, the data discipline and the guardrails. Tell me the revenue problem.</p>
+  <div class="cta-row center">
+    <a class="btn" id="mail" href="#">Email me</a>
+    <a class="btn btn-ghost" id="cal" href="#" target="_blank" rel="noopener">Book a 30-min call</a>
+    <a class="btn btn-ghost" id="li" href="#" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn btn-ghost" id="gh" href="#" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <span>&copy; <span id="yr"></span> Anushka Mishra</span>
+  <span>Capstone client anonymised. All demo data is invented.</span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
