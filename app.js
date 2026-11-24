@@ -2,9 +2,9 @@
 
 /* ---- EDIT ME: contact links. Leave "" to hide a button. ---- */
 const CONFIG = {
-  email: "ianushkamishra29@gmail.com", // confirm you want this public
+  email: "anushkamishra.builds@gmail.com",
   calendly: "",   // e.g. https://cal.com/yourname/30min
-  linkedin: "",   // e.g. https://www.linkedin.com/in/yourname
+  linkedin: "https://www.linkedin.com/in/anushka-m-6a635a430/",
   github: "",     // e.g. https://github.com/yourname
   // Capstone client is anonymised. Replace once you have written permission to name them.
   clientName: "Tallpine",
