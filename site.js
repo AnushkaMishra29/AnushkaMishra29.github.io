@@ -37,6 +37,12 @@
   const onScroll = () => { const h = root; bar.style.width = (h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight) * 100) + "%"; };
   addEventListener("scroll", onScroll, { passive: true }); onScroll();
 
+  /* ---- Sticky mobile CTA appears after the hero ---- */
+  safe(() => {
+    const st = q("#sticky"), hero = q(".hero"); if (!st || !hero) return;
+    new IntersectionObserver((es) => st.classList.toggle("show", !es[0].isIntersecting), { threshold: 0 }).observe(hero);
+  });
+
   /* ---- Active nav link ---- */
   safe(() => {
     const links = qa(".nav nav a");
@@ -44,7 +50,7 @@
       if (!e.isIntersecting) return;
       links.forEach((a) => a.classList.toggle("cur", a.getAttribute("href") === "#" + e.target.id));
     }), { rootMargin: "-45% 0px -50% 0px" });
-    ["proof", "journey", "demo", "credentials", "about"].forEach((id) => { const n = document.getElementById(id); if (n) io.observe(n); });
+    ["proof", "how", "demo", "credentials", "about"].forEach((id) => { const n = document.getElementById(id); if (n) io.observe(n); });
   });
 
   /* ---- Headline reveal (word masks) ---- */
@@ -75,7 +81,7 @@
   /* ---- Hero intro: quick, so the page is never empty ---- */
   safe(() => {
     if (!animate) return;
-    const all = [".hero-name", ".status-line", ".hero h1", ".hero .lead", ".hero .cta-row > *", ".portrait figcaption", ".stats li"];
+    const all = [".hero-name", ".status-line", ".hero h1", ".hero .lead", ".hero .cta-row > *", ".stats li"];
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
     tl.from(all, { y: 18, opacity: 0, duration: 0.55, stagger: 0.05, clearProps: "all" })
       .from(".portrait-frame", { clipPath: "inset(10% 10% 10% 10% round 400px)", opacity: 0, scale: 1.05, duration: 0.9, ease: "power3.inOut", clearProps: "all" }, 0);
