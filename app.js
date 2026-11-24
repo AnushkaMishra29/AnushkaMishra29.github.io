@@ -64,20 +64,7 @@ const io = new IntersectionObserver(es => es.forEach(e => {
 }), { threshold: .15 });
 document.querySelectorAll(".reveal,.bars").forEach(el => io.observe(el));
 
-document.querySelectorAll("[data-count]").forEach(el => {
-  const to = +el.dataset.count, pre = el.dataset.prefix || "", suf = el.dataset.suffix || "";
-  const paint = v => el.innerHTML = pre + Math.round(v) + suf;
-  if (reduce) return paint(to);
-  paint(0);
-  const co = new IntersectionObserver(es => {
-    if (!es[0].isIntersecting) return;
-    co.disconnect();
-    const t0 = performance.now();
-    const tick = t => { const p = Math.min(1, (t - t0) / 1200); paint(to * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(tick); };
-    requestAnimationFrame(tick);
-  }, { threshold: .6 });
-  co.observe(el);
-});
+/* Stat values are written in the HTML; no count-up, so nothing ever shows a false zero. */
 
 /* =========================================================
    Simulated inbound engine (invented companies and rules)

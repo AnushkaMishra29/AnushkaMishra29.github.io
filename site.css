@@ -90,17 +90,6 @@ h3{font:600 20px/1.3 var(--sans);letter-spacing:-.012em}
   .stats li:nth-child(n+3){border-top:1px solid var(--line);margin-top:20px}
 }
 
-/* ---------- ticker ---------- */
-.ticker{max-width:var(--wrap);margin:clamp(32px,4vw,56px) auto 0;padding-inline:var(--pad);display:flex;align-items:center;gap:24px;border-block:1px solid var(--line);padding-block:18px}
-.ticker-label{flex:none;font:600 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
-.ticker-mask{overflow:hidden;flex:1;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-.track{display:flex;gap:0;width:max-content;animation:marquee 60s linear infinite}
-.track span{font:400 24px/1 var(--serif);white-space:nowrap;padding-right:28px;color:var(--ink)}
-.track span::after{content:"/";margin-left:28px;color:var(--accent)}
-.ticker:hover .track{animation-play-state:paused}
-@keyframes marquee{to{transform:translateX(-50%)}}
-@media (max-width:700px){.ticker-label{display:none}}
-
 /* ---------- sections ---------- */
 .section{padding:clamp(60px,7vw,104px) 0 0}
 .sec-head{margin-bottom:clamp(28px,3.6vw,52px)}
@@ -251,8 +240,6 @@ h3{font:600 20px/1.3 var(--sans);letter-spacing:-.012em}
 /* ---------- reveal ---------- */
 .js .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
 .js .reveal.in{opacity:1;transform:none}
-.fx .w{display:inline-block;overflow:hidden;vertical-align:top;padding:.04em .04em .14em;margin:-.04em -.04em -.14em}
-.fx .wi{display:inline-block;transform:translateY(115%);will-change:transform}
 
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -268,12 +255,6 @@ html.lenis,html.lenis body{height:auto}
 @media (max-width:860px){.cert{position:static}}
 
 /* ===== motion ===== */
-.fx .sec-no{border-top-color:transparent}
-.fx .sec-no::after{content:"";position:absolute;left:0;right:0;top:0;height:1.5px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform 1.3s cubic-bezier(.7,0,.2,1)}
-.fx .contact .sec-no::after{background:rgba(244,240,230,.5)}
-.fx .sec-no.in::after{transform:scaleX(1)}
-.fx .rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
-.fx .rv.in{opacity:1;transform:none}
 .portrait-art::before{animation:drift 7s ease-in-out infinite alternate}
 @keyframes drift{from{transform:translate(0,0)}to{transform:translate(8px,8px)}}
 .portrait-frame{will-change:transform}
@@ -362,10 +343,71 @@ details.how b{color:var(--ink)}
   .sticky-cta{display:inline-flex;position:fixed;left:50%;bottom:16px;z-index:25;transform:translate(-50%,160%);padding:14px 28px;border-radius:99px;background:var(--accent);color:#fff;font:600 15px/1 var(--sans);text-decoration:none;box-shadow:0 12px 28px -10px rgba(22,19,14,.5);transition:transform .25s}
   .sticky-cta.show{transform:translate(-50%,0)}
 }
-.track{display:none}
 .stats{grid-template-columns:repeat(3,1fr)}
 @media (max-width:900px){
   .stats{grid-template-columns:1fr}
   .stats li,.stats li+li{padding:18px 0;border-left:0;margin-top:0}
   .stats li+li{border-top:1px solid var(--line)}
+}
+
+/* ===== Phase 4 (P2): calm motion, restrained accent, mobile polish ===== */
+/* motion: short fades only (<=250ms), nothing loops except the walkthrough */
+.js .reveal,.js .rv{opacity:0;transform:translateY(12px);transition:opacity .25s ease-out,transform .25s ease-out}
+.js .reveal.in,.js .rv.in{opacity:1;transform:none}
+.js .hero-copy>*,.js .portrait{animation:rise .25s ease-out both}
+.js .hero-copy>*:nth-child(2){animation-delay:.04s}
+.js .hero-copy>*:nth-child(3){animation-delay:.08s}
+.js .hero-copy>*:nth-child(4){animation-delay:.12s}
+.js .hero-copy>*:nth-child(5){animation-delay:.16s}
+.js .hero-copy>*:nth-child(6){animation-delay:.2s}
+.js .portrait{animation-delay:.08s}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}}
+.dot,.portrait-art::before{animation:none}
+.j-card{transition:opacity .25s,transform .25s}
+.j-fill,.j-dot{transition:width .35s ease-out,left .35s ease-out}
+.term .ln{animation-duration:.2s}
+html{scroll-behavior:smooth}
+[id]{scroll-margin-top:84px}
+
+/* accent = calls to action + key numbers only */
+h1 em,h2 em,.demo-title em{color:var(--ink)}
+.contact h2 em{color:var(--paper)}
+.hero .btn:not(.btn-line),.sticky-cta{background:var(--accent);border-color:var(--accent);color:#fff}
+.hero .btn:not(.btn-line):hover{background:var(--ink);border-color:var(--ink)}
+.stats b,.case-metric b{color:var(--accent)}
+.tag{color:var(--muted)}
+.case.flagship .tag{background:var(--ink);color:var(--paper)}
+.hero-name span{color:var(--ink);border-color:var(--line2)}
+.timeline b,.tgroup h3{color:var(--ink)}
+.deliv li::before{background:var(--ink)}
+.j-card .big{color:var(--line2)}
+.j-node.on{background:var(--ink);border-color:var(--ink)}
+.j-node.done{border-color:var(--ink);color:var(--ink)}
+.j-fill,.j-card.on::after,#progress{background:var(--ink)}
+.case dd.result{border-left-color:var(--ink)}
+.case-metric b i{color:var(--soft)}
+.portrait-art::before{border-color:var(--line2)}
+.case.flagship{background:linear-gradient(90deg,rgba(22,19,14,.04),transparent 70%)}
+.case:hover{background:none}
+.case:hover .case-metric b{color:var(--accent)}
+.stats li:hover b{color:var(--accent)}
+
+/* mobile polish: 44px tap targets, no horizontal scroll */
+@media (max-width:860px){
+  [id]{scroll-margin-top:118px}
+  .nav nav a:not(.nav-cta){padding:12px 2px}
+  .btn,.btn-small{min-height:44px}
+  .j-node{width:44px;height:44px}
+  .j-track::before{left:22px;right:22px}
+  .j-fill{left:22px;width:calc((100% - 44px) * var(--jp,0))}
+  details.how summary{min-height:44px;display:inline-flex;align-items:center}
+  .mailrow button{min-height:44px;padding-inline:18px}
+  .link-arrow{min-height:44px;align-items:center}
+  .how-link{padding:10px 4px}
+}
+@media (max-width:520px){
+  .hero-name{font-size:30px}
+  .cta-row{gap:12px}
+  .cta-row .btn{flex:1 1 150px;justify-content:center}
+  h2{font-size:clamp(36px,10vw,48px)}
 }
