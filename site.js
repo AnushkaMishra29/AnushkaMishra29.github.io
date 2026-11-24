@@ -86,14 +86,14 @@
     const hw = qa(".wi", h1);
     gsap.set(hw, { yPercent: 118 });
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-    tl.from(".status-line", { y: 14, opacity: 0, duration: 0.6 })
+    tl.from(".hero-name,.status-line", { y: 14, opacity: 0, duration: 0.6, stagger: 0.1 })
       .to(hw, { yPercent: 0, duration: 1.1, ease: "power4.out", stagger: 0.07, onComplete: () => root.classList.add("h1-in") }, "-=.2")
       .from(".hero .lead", { y: 20, opacity: 0, duration: 0.8 }, "-=.7")
       .from(".hero .cta-row > *", { y: 16, opacity: 0, duration: 0.6, stagger: 0.08 }, "-=.6")
       .from(".portrait-frame", { clipPath: "inset(12% 12% 12% 12% round 400px)", opacity: 0, scale: 1.06, duration: 1.4, ease: "power3.inOut" }, 0.1)
       .from(".portrait figcaption", { y: 12, opacity: 0, duration: 0.7 }, "-=.6")
       .from(".stats li", { y: 24, opacity: 0, duration: 0.7, stagger: 0.09 }, "-=.7");
-    tl.eventCallback("onComplete", () => gsap.set([".status-line", ".hero .lead", ".hero .cta-row > *", ".portrait-frame", ".portrait figcaption", ".stats li"], { clearProps: "all" }));
+    tl.eventCallback("onComplete", () => gsap.set([".hero-name", ".status-line", ".hero .lead", ".hero .cta-row > *", ".portrait-frame", ".portrait figcaption", ".stats li"], { clearProps: "all" }));
   });
 
   /* ---- Section rules draw in, rows slide up, portrait parallax ---- */
