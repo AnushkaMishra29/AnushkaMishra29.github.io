@@ -82,15 +82,33 @@
   /* ---- Hero intro ---- */
   safe(() => {
     if (!animate) return;
+    const h1 = q(".hero h1"); h1.setAttribute("aria-label", h1.textContent); split(h1);
+    const hw = qa(".wi", h1);
+    gsap.set(hw, { yPercent: 118 });
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
     tl.from(".status-line", { y: 14, opacity: 0, duration: 0.6 })
-      .from(".hero h1", { y: 40, opacity: 0, duration: 1.1 }, "-=.3")
+      .to(hw, { yPercent: 0, duration: 1.1, ease: "power4.out", stagger: 0.07, onComplete: () => root.classList.add("h1-in") }, "-=.2")
       .from(".hero .lead", { y: 20, opacity: 0, duration: 0.8 }, "-=.7")
       .from(".hero .cta-row > *", { y: 16, opacity: 0, duration: 0.6, stagger: 0.08 }, "-=.6")
       .from(".portrait-frame", { clipPath: "inset(12% 12% 12% 12% round 400px)", opacity: 0, scale: 1.06, duration: 1.4, ease: "power3.inOut" }, 0.1)
       .from(".portrait figcaption", { y: 12, opacity: 0, duration: 0.7 }, "-=.6")
       .from(".stats li", { y: 24, opacity: 0, duration: 0.7, stagger: 0.09 }, "-=.7");
-    tl.eventCallback("onComplete", () => gsap.set([".status-line", ".hero h1", ".hero .lead", ".hero .cta-row > *", ".portrait-frame", ".portrait figcaption", ".stats li"], { clearProps: "all" }));
+    tl.eventCallback("onComplete", () => gsap.set([".status-line", ".hero .lead", ".hero .cta-row > *", ".portrait-frame", ".portrait figcaption", ".stats li"], { clearProps: "all" }));
+  });
+
+  /* ---- Section rules draw in, rows slide up, portrait parallax ---- */
+  safe(() => {
+    if (!animate) return;
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.15, rootMargin: "0px 0px -6% 0px" });
+    qa(".sec-no").forEach((n) => io.observe(n));
+    const rows = qa(".cred,.timeline li,.lane,.cert,.panel");
+    rows.forEach((n, i) => { n.classList.add("rv"); n.style.transitionDelay = ((i % 3) * 0.09) + "s"; io.observe(n); });
+    qa(".case").forEach((c) => {
+      const items = [c.querySelector(".case-metric b"), c.querySelector(".case-metric span"), c.querySelector(".tag"), c.querySelector("h3"), ...qa("dt,dd", c)];
+      gsap.from(items, { y: 34, opacity: 0, duration: 0.9, ease: "power3.out", stagger: 0.06, scrollTrigger: { trigger: c, start: "top 78%", once: true } });
+    });
+    const img = q(".portrait-frame img");
+    if (img && !reduce) gsap.fromTo(img, { yPercent: -5, scale: 1.12 }, { yPercent: 5, scale: 1.12, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
   });
 
   /* ---- Autoplay journey ---- */
