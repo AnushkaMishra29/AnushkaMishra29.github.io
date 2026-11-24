@@ -27,6 +27,7 @@ const CONFIG = {
   set("gh", CONFIG.github);
   document.querySelectorAll('[data-cta="hire"]').forEach(a => {
     if (CONFIG.calendly) { a.href = CONFIG.calendly; a.target = "_blank"; a.rel = "noopener"; }
+    else if (CONFIG.email) { a.href = "mailto:" + CONFIG.email; if (a.classList.contains("btn-ghost")) a.textContent = "Email me"; }
   });
   document.getElementById("yr").textContent = new Date().getFullYear();
 })();

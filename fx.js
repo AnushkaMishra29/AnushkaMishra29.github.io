@@ -192,7 +192,7 @@
     setStep(0); setP(0.04);
     let st = null;
     if (hasG && !reduce) {
-      st = ScrollTrigger.create({ trigger: sec, start: "top top", end: "+=3200", pin: q(".j-pin", sec), anticipatePin: 1,
+      st = ScrollTrigger.create({ trigger: sec, start: "top top", end: "+=2400", pin: q(".j-pin", sec), anticipatePin: 1,
         onUpdate: (s) => { setP(s.progress); setStep(Math.min(5, Math.floor(s.progress * 6))); } });
     } else if (!reduce) {
       let k = 0, vis = false;
@@ -218,7 +218,7 @@
 
   /* ---------- Side rail + active nav ---------- */
   safe(() => {
-    const defs = [["proof", "Work"], ["journey", "How I build"], ["demo", "Live demo"], ["judgment", "Judgment"], ["build", "Range"], ["credentials", "Credentials"], ["about", "About"], ["contact", "Contact"]];
+    const defs = [["proof", "Work"], ["build", "Range"], ["journey", "How I build"], ["demo", "Live demo"], ["judgment", "Judgment"], ["credentials", "Credentials"], ["about", "About"], ["contact", "Contact"]];
     const rail = document.createElement("nav"); rail.className = "rail"; rail.setAttribute("aria-label", "Sections");
     defs.forEach(([id, label]) => { if (!document.getElementById(id)) return; const a = document.createElement("a"); a.href = "#" + id; a.dataset.s = id; a.setAttribute("aria-label", label); const s = document.createElement("span"); s.textContent = label; a.append(s); rail.append(a); });
     document.body.append(rail);
@@ -261,7 +261,7 @@
   }
   const ld = q("#loader");
   const seen = (() => { try { return sessionStorage.getItem("seen") === "1"; } catch (e) { return false; } })();
-  if (!ld || !hasG || reduce || STATIC) { finish(); if (ld && STATIC) ld.style.display = "none"; }
+  if (!ld || !hasG || reduce || STATIC) { finish(); if (ld && STATIC) ld.style.display = "none"; if (hasG && !reduce && !STATIC) intro(); }
   else if (seen) { gsap.to(ld, { opacity: 0, duration: 0.35, onComplete: finish }); intro(); }
   else {
     try { sessionStorage.setItem("seen", "1"); } catch (e) {}
