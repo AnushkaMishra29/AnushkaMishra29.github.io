@@ -190,20 +190,24 @@
     };
     const setP = (p) => track.style.setProperty("--jp", clamp(0, 1, (p * 6 - 0.5) / 5).toFixed(4));
     setStep(0); setP(0.04);
-    let st = null;
-    if (hasG && !reduce) {
-      st = ScrollTrigger.create({ trigger: sec, start: "top top", end: "+=2400", pin: q(".j-pin", sec), anticipatePin: 1,
-        onUpdate: (s) => { setP(s.progress); setStep(Math.min(5, Math.floor(s.progress * 6))); } });
-    } else if (!reduce) {
-      let k = 0, vis = false;
-      new IntersectionObserver((es) => { vis = es[0].isIntersecting; }).observe(sec);
-      setInterval(() => { if (vis) { k = (k + 1) % 6; setStep(k); setP((k + 0.5) / 6); } }, 3200);
-      q(".j-hint", sec).style.display = "none";
-    } else { q(".j-hint", sec).style.display = "none"; }
-    nodes.forEach((n, i) => n.addEventListener("click", () => {
-      if (st) goTo(st.start + ((i + 0.5) / 6) * (st.end - st.start));
-      else { setStep(i); setP((i + 0.5) / 6); }
-    }));
+    /* Autoplay: advances on its own while visible; scrolling past simply moves on. */
+    const DUR = 3600;
+    let k = 0, vis = false, hover = false, timer = null;
+    const go = (i) => { k = i; setStep(i); setP((i + 0.5) / 6); };
+    const arm = () => {
+      clearInterval(timer);
+      if (reduce || !vis) return;
+      timer = setInterval(() => { if (!hover) go((k + 1) % 6); }, DUR);
+    };
+    new IntersectionObserver((es) => {
+      const was = vis; vis = es[0].isIntersecting;
+      if (vis && !was) { go(0); } arm();
+      if (!vis) clearInterval(timer);
+    }, { threshold: 0.4 }).observe(sec);
+    const stage = q(".j-stage", sec);
+    stage.addEventListener("pointerenter", () => { hover = true; sec.classList.add("paused"); });
+    stage.addEventListener("pointerleave", () => { hover = false; sec.classList.remove("paused"); arm(); });
+    nodes.forEach((n, i) => n.addEventListener("click", () => { go(i); arm(); }));
   });
 
   /* ---------- Kinetic type band ---------- */
@@ -218,7 +222,7 @@
 
   /* ---------- Side rail + active nav ---------- */
   safe(() => {
-    const defs = [["proof", "Work"], ["build", "Range"], ["journey", "How I build"], ["demo", "Live demo"], ["judgment", "Judgment"], ["credentials", "Credentials"], ["about", "About"], ["contact", "Contact"]];
+    const defs = [["proof", "Work"], ["build", "Range"], ["journey", "How I build"], ["demo", "Live demo"], ["credentials", "Credentials"], ["about", "About"], ["contact", "Contact"]];
     const rail = document.createElement("nav"); rail.className = "rail"; rail.setAttribute("aria-label", "Sections");
     defs.forEach(([id, label]) => { if (!document.getElementById(id)) return; const a = document.createElement("a"); a.href = "#" + id; a.dataset.s = id; a.setAttribute("aria-label", label); const s = document.createElement("span"); s.textContent = label; a.append(s); rail.append(a); });
     document.body.append(rail);
