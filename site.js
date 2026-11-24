@@ -79,21 +79,14 @@
     });
   });
 
-  /* ---- Hero intro ---- */
+  /* ---- Hero intro: quick, so the page is never empty ---- */
   safe(() => {
     if (!animate) return;
-    const h1 = q(".hero h1"); h1.setAttribute("aria-label", h1.textContent); split(h1);
-    const hw = qa(".wi", h1);
-    gsap.set(hw, { yPercent: 118 });
+    const all = [".hero-name", ".status-line", ".hero h1", ".hero .lead", ".hero .cta-row > *", ".portrait figcaption", ".stats li"];
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-    tl.from(".hero-name,.status-line", { y: 14, opacity: 0, duration: 0.6, stagger: 0.1 })
-      .to(hw, { yPercent: 0, duration: 1.1, ease: "power4.out", stagger: 0.07, onComplete: () => root.classList.add("h1-in") }, "-=.2")
-      .from(".hero .lead", { y: 20, opacity: 0, duration: 0.8 }, "-=.7")
-      .from(".hero .cta-row > *", { y: 16, opacity: 0, duration: 0.6, stagger: 0.08 }, "-=.6")
-      .from(".portrait-frame", { clipPath: "inset(12% 12% 12% 12% round 400px)", opacity: 0, scale: 1.06, duration: 1.4, ease: "power3.inOut" }, 0.1)
-      .from(".portrait figcaption", { y: 12, opacity: 0, duration: 0.7 }, "-=.6")
-      .from(".stats li", { y: 24, opacity: 0, duration: 0.7, stagger: 0.09 }, "-=.7");
-    tl.eventCallback("onComplete", () => gsap.set([".hero-name", ".status-line", ".hero .lead", ".hero .cta-row > *", ".portrait-frame", ".portrait figcaption", ".stats li"], { clearProps: "all" }));
+    tl.from(all, { y: 18, opacity: 0, duration: 0.55, stagger: 0.05, clearProps: "all" })
+      .from(".portrait-frame", { clipPath: "inset(10% 10% 10% 10% round 400px)", opacity: 0, scale: 1.05, duration: 0.9, ease: "power3.inOut", clearProps: "all" }, 0);
+    setTimeout(() => { if (tl.progress() < 1) tl.progress(1); }, 2500);
   });
 
   /* ---- Section rules draw in, rows slide up, portrait parallax ---- */
