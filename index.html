@@ -8,10 +8,11 @@
 <meta property="og:title" content="Anushka Mishra | GTM Engineer">
 <meta property="og:description" content="GTM systems that turn signals into pipeline. Try the live inbound engine demo.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#070b14">
+<meta name="theme-color" content="#faf9f6">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="extras.css">
 <link rel="stylesheet" href="fx.css">
+<link rel="stylesheet" href="theme.css">
 </head>
 <body>
 <div id="loader" aria-hidden="true"><div class="l-in">
@@ -29,11 +30,9 @@
 <header class="nav" id="top">
   <a class="brand" href="#top"><span class="mono-dot"></span>Anushka Mishra</a>
   <nav>
-    <a href="#build">What I build</a>
-    <a href="#tools">Tools</a>
+    <a href="#proof">Work</a>
+    <a href="#journey">How I build</a>
     <a href="#demo">Live demo</a>
-    <a href="#proof">Proof</a>
-    <a href="#judgment">Judgment</a>
     <a href="#credentials">Credentials</a>
     <a href="#about">About</a>
     <a class="btn btn-small" href="#contact" data-cta="hire">Let's talk</a>
@@ -64,9 +63,9 @@
         <path id="trunk" d="M220 62 V410" class="trunk"/>
         <path d="M220 62 V410" class="trunk flow"/>
         <g filter="url(#glow)">
-          <circle r="5" fill="#5eead4"><animateMotion dur="3.6s" repeatCount="indefinite" begin="0s"><mpath href="#trunk"/></animateMotion></circle>
-          <circle r="5" fill="#818cf8"><animateMotion dur="3.6s" repeatCount="indefinite" begin="1.2s"><mpath href="#trunk"/></animateMotion></circle>
-          <circle r="5" fill="#fbbf24"><animateMotion dur="3.6s" repeatCount="indefinite" begin="2.4s"><mpath href="#trunk"/></animateMotion></circle>
+          <circle r="5" fill="#4f46e5"><animateMotion dur="3.6s" repeatCount="indefinite" begin="0s"><mpath href="#trunk"/></animateMotion></circle>
+          <circle r="5" fill="#7c3aed"><animateMotion dur="3.6s" repeatCount="indefinite" begin="1.2s"><mpath href="#trunk"/></animateMotion></circle>
+          <circle r="5" fill="#d97706"><animateMotion dur="3.6s" repeatCount="indefinite" begin="2.4s"><mpath href="#trunk"/></animateMotion></circle>
         </g>
         <g class="hn" style="--d:0s"><rect x="120" y="30" width="200" height="50" rx="14"/><text x="220" y="52" class="t1">Signals</text><text x="220" y="69" class="t2">job posts &#183; site visits &#183; filings</text></g>
         <g class="hn" style="--d:1.2s"><rect x="120" y="118" width="200" height="50" rx="14"/><text x="220" y="140" class="t1">Clay + Sumble</text><text x="220" y="157" class="t2">enrich &#183; match ICP</text></g>
@@ -93,52 +92,42 @@
   <div class="track rev" id="track2"></div>
 </div>
 
-<!-- WHAT I BUILD -->
-<section id="build" class="section">
+<!-- PROOF -->
+<section id="proof" class="section">
   <div class="section-head">
-    <p class="eyebrow">What I build</p>
-    <h2>Across the whole motion.</h2>
-    <p class="sub">I'm growing across the full GTM stack. Here is exactly where each lane stands today.</p>
+    <p class="eyebrow">Proof</p>
+    <h2>Outcomes first. Tools second.</h2>
+    <p class="sub">Four systems. Each one: the problem, what I built, what changed.</p>
   </div>
-  <div class="lanes">
-    <article class="lane">
-      <span class="status shipped">Shipped</span>
-      <h3>Inbound</h3>
-      <p>Match, route, reply clock, draft and claims check for every enquiry, with a person approving each send. Built and demoed in my GTM Engineer School capstone.</p>
-      <a href="#demo">Try the demo &rarr;</a>
+  <div class="cards">
+    <article class="card">
+      <span class="tag">Nagarro &middot; Data &amp; forecasting</span>
+      <h3>Inventory model that found $1M+ a year</h3>
+      <p><b>Problem.</b> Excess stock and stockouts at the same time, across 1,000+ SKUs.</p>
+      <p><b>Built.</b> A Power BI dashboard plus a Python forecasting model on 3+ years of sales data. My manager and stakeholders acted on it.</p>
+      <p class="result"><b>Result.</b> Demand-planning accuracy up from 60% to ~85%, excess stock &minus;28%, stockouts &minus;35%, $1M+ yearly profit impact.</p>
     </article>
-    <article class="lane">
-      <span class="status progress">In progress</span>
-      <h3>Outbound</h3>
-      <p>Working through the Clay outbound certification: signal-based sourcing, enrichment waterfalls, scoring and personalised sequences.</p>
-      <a href="#credentials">See credentials &rarr;</a>
+    <article class="card">
+      <span class="tag">Nagarro &middot; Automation</span>
+      <h3>XML catalog pipeline: ~1 month &rarr; &le;4 hours</h3>
+      <p><b>Problem.</b> Client catalogs (specs, pricing, categories, installations) arrived as XML that differed from our database in names, structure, units and gaps. Reconciling by hand took about a month.</p>
+      <p><b>Built.</b> Validates every field, repairs structural drift, parks records that need client feedback, and loads the clean rest.</p>
+      <p class="result"><b>Result.</b> One full load in 4 hours at most. Still used by the team today.</p>
     </article>
-    <article class="lane">
-      <span class="status next">Next</span>
-      <h3>Campaigns &amp; analytics</h3>
-      <p>Applying my forecasting and revenue-analysis background to campaign measurement: which triggers and messages actually book meetings.</p>
-      <a href="#proof">See the analytics work &rarr;</a>
+    <article class="card">
+      <span class="tag">Orange Business Services &middot; Revenue ops</span>
+      <h3>Order-to-cash clarity across 8 platforms</h3>
+      <p><b>Problem.</b> Quote, order, provisioning, usage, billing and revenue lived in separate internal systems.</p>
+      <p><b>Built.</b> SQL extracts and Power BI / Excel / Access reporting that compared customer revenue with carrier cost, flagging services where cost weakened profitability for pricing review.</p>
+      <p class="result"><b>Result.</b> ~20% less effort on recurring KPI reporting and a consistent view for pricing and monetization decisions.</p>
     </article>
-  </div>
-</section>
-
-<!-- MOTION EXPLORER -->
-<section id="motion" class="section">
-  <div class="section-head">
-    <p class="eyebrow">How I think</p>
-    <h2>One system per motion. Same discipline.</h2>
-    <p class="sub">Pick a motion to see how data flows through it, and where a human stays in control.</p>
-  </div>
-  <div class="tabs" role="tablist" id="tabs">
-    <button role="tab" class="tab on" data-m="inbound">Inbound</button>
-    <button role="tab" class="tab" data-m="outbound">Outbound</button>
-    <button role="tab" class="tab" data-m="campaigns">Campaigns</button>
-  </div>
-  <div class="panel motion">
-    <div class="motion-top"><span class="status" id="m-status"></span><h3 id="m-title"></h3></div>
-    <p id="m-desc" class="m-desc"></p>
-    <div class="m-flow" id="m-flow"></div>
-    <div class="m-foot"><div><b>Human in the loop</b><span id="m-human"></span></div><div><b>Tools</b><span id="m-tools"></span></div><div><b>Success measure</b><span id="m-kpi"></span></div></div>
+    <article class="card">
+      <span class="tag">Capstone &middot; GTM engineering</span>
+      <h3>An inbound engine with guardrails</h3>
+      <p><b>Problem.</b> Slow, uneven replies to buyers who already raised a hand.</p>
+      <p><b>Built.</b> Match, route, reply clock, draft and claims linter, wired through a CRM, with a person approving every send.</p>
+      <p class="result"><b>Result.</b> A drafted reply inside one business day or an alarm fires. Built for an early-stage enterprise-AI company; applauded at Demo Day.</p>
+    </article>
   </div>
 </section>
 
@@ -240,109 +229,6 @@
   </div>
 </section>
 
-<!-- KINETIC TYPE -->
-<div class="kinetic" aria-hidden="true">
-  <div class="k-row"><span class="f">Signals</span><i>&rarr;</i><span>pipeline</span><i>&#9679;</i><span class="g">guardrails</span><i>&#9679;</i><span class="f">Signals</span><i>&rarr;</i><span>pipeline</span><i>&#9679;</i><span class="g">guardrails</span><i>&#9679;</i><span class="f">Signals</span><i>&rarr;</i><span>pipeline</span></div>
-  <div class="k-row"><span>human in the loop</span><i>&#9679;</i><span class="f">fails closed</span><i>&#9679;</i><span class="g">measure everything</span><i>&#9679;</i><span>human in the loop</span><i>&#9679;</i><span class="f">fails closed</span><i>&#9679;</i><span class="g">measure everything</span></div>
-</div>
-
-<!-- PROOF -->
-<section id="proof" class="section">
-  <div class="section-head">
-    <p class="eyebrow">Proof</p>
-    <h2>Outcomes first. Tools second.</h2>
-    <p class="sub">Four systems, each with the problem, what I built, and what changed.</p>
-  </div>
-  <div class="cards">
-    <article class="card">
-      <span class="tag">Nagarro &middot; Data &amp; forecasting</span>
-      <h3>Inventory model that found $1M+ a year</h3>
-      <p><b>Problem.</b> Excess stock and stockouts at the same time, across 1,000+ SKUs.</p>
-      <p><b>Built.</b> A Power BI dashboard plus a Python forecasting model on 3+ years of sales data. My manager and stakeholders acted on it.</p>
-      <p class="result"><b>Result.</b> Demand-planning accuracy up from 60% to ~85%, excess stock &minus;28%, stockouts &minus;35%, $1M+ yearly profit impact.</p>
-    </article>
-    <article class="card">
-      <span class="tag">Nagarro &middot; Automation</span>
-      <h3>XML catalog pipeline: ~1 month &rarr; &le;4 hours</h3>
-      <p><b>Problem.</b> Client catalogs (specs, pricing, categories, installations) arrived as XML that differed from our database in names, structure, units and gaps. Reconciling by hand took about a month.</p>
-      <p><b>Built.</b> Validates every field, repairs structural drift, parks records that need client feedback, and loads the clean rest.</p>
-      <p class="result"><b>Result.</b> One full load in 4 hours at most. Still used by the team today.</p>
-    </article>
-    <article class="card">
-      <span class="tag">Orange Business Services &middot; Revenue ops</span>
-      <h3>Order-to-cash clarity across 8 platforms</h3>
-      <p><b>Problem.</b> Quote, order, provisioning, usage, billing and revenue lived in separate internal systems.</p>
-      <p><b>Built.</b> SQL extracts and Power BI / Excel / Access reporting that compared customer revenue with carrier cost, flagging services where cost weakened profitability for pricing review.</p>
-      <p class="result"><b>Result.</b> ~20% less effort on recurring KPI reporting and a consistent view for pricing and monetization decisions.</p>
-    </article>
-    <article class="card">
-      <span class="tag">Capstone &middot; GTM engineering</span>
-      <h3>An inbound engine with guardrails</h3>
-      <p><b>Problem.</b> Slow, uneven replies to buyers who already raised a hand.</p>
-      <p><b>Built.</b> Match, route, reply clock, draft and claims linter, wired through a CRM, with a person approving every send.</p>
-      <p class="result"><b>Result.</b> A drafted reply inside one business day or an alarm fires. Built for an early-stage enterprise-AI company; applauded at Demo Day.</p>
-    </article>
-  </div>
-</section>
-
-<section class="section tight" id="impact">
-  <div class="section-head"><p class="eyebrow">Impact, drawn</p><h2>The numbers behind the stories.</h2></div>
-  <div class="charts">
-    <div class="panel chart">
-      <h3>Demand-planning accuracy</h3>
-      <svg viewBox="0 0 200 200" class="gauge">
-        <circle cx="100" cy="100" r="78" class="g-track"/>
-        <circle cx="100" cy="100" r="78" class="g-arc before" style="--p:60"/>
-        <circle cx="100" cy="100" r="58" class="g-track thin"/>
-        <circle cx="100" cy="100" r="58" class="g-arc after" style="--p:85"/>
-        <text x="100" y="98" class="g-big">~85%</text><text x="100" y="120" class="g-small">from 60%</text>
-      </svg>
-      <p class="fine">Outer ring: before (60%). Inner ring: after (~85%). Forecasting models on 3+ years of sales data across 1,000+ SKUs.</p>
-    </div>
-    <div class="panel chart">
-      <h3>Catalog load time, to scale</h3>
-      <div class="hbar"><span>Manual (about a month)</span><i style="--w:100%" class="bad"></i><em>~30 days</em></div>
-      <div class="hbar"><span>Automated pipeline</span><i style="--w:.6%" class="good"></i><em>&le;4 hrs</em></div>
-      <p class="fine">Drawn to scale: the automated bar is a sliver, under 1% of the manual one. Validation, repair of structural drift and parking of records that need client feedback are all included.</p>
-    </div>
-    <div class="panel chart">
-      <h3>What moved</h3>
-      <div class="hbar"><span>Stockouts</span><i style="--w:35%" class="good"></i><em>&minus;35%</em></div>
-      <div class="hbar"><span>Excess stock</span><i style="--w:28%" class="good"></i><em>&minus;28%</em></div>
-      <div class="hbar"><span>Recurring reporting effort</span><i style="--w:20%" class="good"></i><em>&minus;20%</em></div>
-      <p class="fine">Nagarro inventory optimization and Orange Business Services KPI reporting.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ENGINE -->
-<section id="engine" class="section">
-  <div class="section-head">
-    <p class="eyebrow">Architecture</p>
-    <h2>How one enquiry flows.</h2>
-    <p class="sub">Deterministic where it must be, generative only where it is safe. No language model decides a route.</p>
-  </div>
-  <div class="flow" id="flow">
-    <div class="node"><b>Form</b><span>6 enquiry types</span></div>
-    <div class="arrow"></div>
-    <div class="node"><b>CRM</b><span>system of record</span></div>
-    <div class="arrow"></div>
-    <div class="node hot"><b>Rules engine</b><span>match &middot; route &middot; clock</span></div>
-    <div class="arrow"></div>
-    <div class="node"><b>Draft</b><span>approved wording</span></div>
-    <div class="arrow"></div>
-    <div class="node hot"><b>Claims linter</b><span>fails closed</span></div>
-    <div class="arrow"></div>
-    <div class="node human"><b>A person</b><span>reviews &amp; sends</span></div>
-  </div>
-  <ul class="principles">
-    <li><b>Rules live in versioned files.</b> Every decision returns a plain-English explanation and the rule version it used. Changing a rule goes through a decision log, tests, and saved evidence.</li>
-    <li><b>Never sends.</b> The engine stages drafts. Approval and sent are timestamped separately.</li>
-    <li><b>Fails closed.</b> If the blocklist is missing, nothing is marked clean. A late or failed run is caught by a watchdog.</li>
-    <li><b>Privacy by design.</b> Person-level identification is dropped at ingest. Only company-level signals are stored or scored.</li>
-  </ul>
-</section>
-
 <!-- JUDGMENT -->
 <section id="judgment" class="section">
   <div class="section-head">
@@ -352,39 +238,43 @@
   <div class="two-col">
     <div class="panel">
       <h3>I tried an AI writer. I switched it off.</h3>
-      <p>Given the approved draft to polish, it dropped the slot a person must fill, removed the briefing ask, added a question of its own and changed a claim. My guards refused every rewrite, so the approved template stayed the draft. That is the guard working.</p>
-      <table class="mini">
-        <tr><th>Approved draft</th><th>AI rewrite</th></tr>
-        <tr><td>Reviewer slot to answer their question</td><td>Gone</td></tr>
-        <tr><td>30-minute briefing ask</td><td>Gone</td></tr>
-        <tr><td>&mdash;</td><td>New closing question</td></tr>
-        <tr><td>"gates that can refuse"</td><td>"&hellip;refuse entry" (claim changed)</td></tr>
-      </table>
+      <p>Given an approved draft to polish, it dropped a required slot, deleted the briefing ask and changed a claim. My guards refused every rewrite, so the approved template stayed the draft.</p>
     </div>
     <div class="panel">
       <h3>I checked whether to trust the data.</h3>
-      <p>I compared two revenue sources across 110 companies. For public companies they agreed closely (78% within 10%, 90% in the same revenue band). For non-profit health systems they diverged widely, most likely because one filing covers a single legal entity and the other a whole system. I flagged that as a hypothesis to verify, not a fact.</p>
-      <div class="bars">
-        <div><span>Public companies</span><i style="--w:78%"></i><em>78%</em></div>
-        <div><span>Non-profit systems</span><i style="--w:37%"></i><em>37%</em></div>
-      </div>
-      <p class="fine">Share of companies within 10% across the two sources.</p>
+      <p>Comparing two revenue sources across 110 companies, they agreed for public companies (78% within 10%) but diverged for non-profit health systems (37%). I flagged the likely cause as a hypothesis, not a fact.</p>
     </div>
   </div>
-  <div class="panel honest">
-    <h3>The honest limits</h3>
-    <p>Tested on invented enquiries with five pieces of fundamental feedback handled (four changed the project, one I pushed back on with a reason). <b>No real user has tried it yet</b>, because the client's site had no inbound traffic and real data needed written permission. I would rather say that than inflate it.</p>
-  </div>
+  <p class="fine honest-line"><b>Honest limit:</b> tested on invented enquiries. No real user has tried the engine yet, because the client's site had no inbound traffic. I would rather say that than inflate it.</p>
 </section>
 
-<!-- TOOLS -->
-<section id="tools" class="section">
+<!-- WHAT I BUILD -->
+<section id="build" class="section">
   <div class="section-head">
-    <p class="eyebrow">Tools I've used</p>
-    <h2>The stack, and what I did with each tool.</h2>
-    <p class="sub">Only tools I have actually used, with where I used them.</p>
+    <p class="eyebrow">What I build</p>
+    <h2>Across the whole motion.</h2>
+    <p class="sub">I'm growing across the full GTM stack. Here is exactly where each lane stands today.</p>
   </div>
-  <div class="toolgrid" id="toolgrid"></div>
+  <div class="lanes">
+    <article class="lane">
+      <span class="status shipped">Shipped</span>
+      <h3>Inbound</h3>
+      <p>Match, route, reply clock, draft and claims check for every enquiry, with a person approving each send. Built and demoed in my GTM Engineer School capstone.</p>
+      <a href="#demo">Try the demo &rarr;</a>
+    </article>
+    <article class="lane">
+      <span class="status progress">In progress</span>
+      <h3>Outbound</h3>
+      <p>Working through the Clay outbound certification: signal-based sourcing, enrichment waterfalls, scoring and personalised sequences.</p>
+      <a href="#credentials">See credentials &rarr;</a>
+    </article>
+    <article class="lane">
+      <span class="status next">Next</span>
+      <h3>Campaigns &amp; analytics</h3>
+      <p>Applying my forecasting and revenue-analysis background to campaign measurement: which triggers and messages actually book meetings.</p>
+      <a href="#proof">See the analytics work &rarr;</a>
+    </article>
+  </div>
 </section>
 
 <!-- CREDENTIALS -->
@@ -433,9 +323,6 @@
     <div class="about-text">
       <p>I started as a full-stack engineer (.NET, Angular, SQL) building configurators for 30,000+ SKUs. I moved into analytics because the best engineering question is usually a business question: where is money leaking? I then went deep on revenue-versus-cost at a telecom, and now I am completing an MS in Data Science &amp; Management at IIM Indore and IIT Indore.</p>
       <p>GTM engineering is where those threads meet: systems thinking, clean data, and a measurable commercial outcome.</p>
-      <div class="chips">
-        <span>Python</span><span>SQL</span><span>Power BI</span><span>.NET / Angular</span><span>HubSpot</span><span>Clay</span><span>Sumble</span><span>Octave</span><span>Swan</span><span>Claude Code</span><span>Git &amp; CI</span>
-      </div>
     </div>
     <ul class="timeline">
       <li><b>2025 &ndash; 2027</b><span>MS Data Science &amp; Management, IIM Indore &amp; IIT Indore</span></li>

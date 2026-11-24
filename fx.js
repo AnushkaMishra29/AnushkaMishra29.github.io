@@ -122,17 +122,17 @@
         const a = nodes[i];
         for (let j = i + 1; j < nodes.length; j++) {
           const b = nodes[j], d = Math.hypot(a.x - b.x, a.y - b.y);
-          if (d < LINK) { ctx.strokeStyle = `rgba(129,140,248,${(1 - d / LINK) * 0.28})`; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
+          if (d < LINK) { ctx.strokeStyle = `rgba(67,56,202,${(1 - d / LINK) * 0.2})`; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
         }
         const dm = Math.hypot(a.x - mouse.x, a.y - mouse.y);
-        if (dm < 170) { ctx.strokeStyle = `rgba(94,234,212,${(1 - dm / 170) * 0.6})`; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke(); }
+        if (dm < 170) { ctx.strokeStyle = `rgba(124,58,237,${(1 - dm / 170) * 0.55})`; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke(); }
       }
-      for (const n of nodes) { ctx.fillStyle = n.h ? "#5eead4" : "rgba(148,163,184,.65)"; ctx.beginPath(); ctx.arc(n.x, n.y, n.h ? n.r + 0.8 : n.r, 0, 6.283); ctx.fill(); }
+      for (const n of nodes) { ctx.fillStyle = n.h ? "#4338ca" : "rgba(90,96,114,.45)"; ctx.beginPath(); ctx.arc(n.x, n.y, n.h ? n.r + 0.8 : n.r, 0, 6.283); ctx.fill(); }
       if (Math.random() < 0.06 && pulses.length < 9) spawn();
       pulses = pulses.filter((p) => (p.t += 0.022) < 1);
       for (const p of pulses) {
         const x = p.a.x + (p.b.x - p.a.x) * p.t, y = p.a.y + (p.b.y - p.a.y) * p.t;
-        const g = ctx.createRadialGradient(x, y, 0, x, y, 12); g.addColorStop(0, "rgba(94,234,212,.95)"); g.addColorStop(1, "rgba(94,234,212,0)");
+        const g = ctx.createRadialGradient(x, y, 0, x, y, 12); g.addColorStop(0, "rgba(67,56,202,.9)"); g.addColorStop(1, "rgba(67,56,202,0)");
         ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, 12, 0, 6.283); ctx.fill();
       }
     }
@@ -218,7 +218,7 @@
 
   /* ---------- Side rail + active nav ---------- */
   safe(() => {
-    const defs = [["build", "Build"], ["motion", "Motions"], ["journey", "Journey"], ["demo", "Live demo"], ["proof", "Proof"], ["tools", "Tools"], ["credentials", "Credentials"], ["about", "About"], ["contact", "Contact"]];
+    const defs = [["proof", "Work"], ["journey", "How I build"], ["demo", "Live demo"], ["judgment", "Judgment"], ["build", "Range"], ["credentials", "Credentials"], ["about", "About"], ["contact", "Contact"]];
     const rail = document.createElement("nav"); rail.className = "rail"; rail.setAttribute("aria-label", "Sections");
     defs.forEach(([id, label]) => { if (!document.getElementById(id)) return; const a = document.createElement("a"); a.href = "#" + id; a.dataset.s = id; a.setAttribute("aria-label", label); const s = document.createElement("span"); s.textContent = label; a.append(s); rail.append(a); });
     document.body.append(rail);
