@@ -11,8 +11,17 @@
 <meta name="theme-color" content="#070b14">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="extras.css">
+<link rel="stylesheet" href="fx.css">
 </head>
 <body>
+<div id="loader" aria-hidden="true"><div class="l-in">
+  <div class="l-name">Anushka Mishra<span style="color:var(--acc)">.</span></div>
+  <div class="l-line"><b>&#9656;</b> signal received</div>
+  <div class="l-line"><b>&#9656;</b> matched &middot; routed &middot; clock started</div>
+  <div class="l-line"><b>&#9656;</b> draft written, claims linted</div>
+  <div class="l-line"><b>&#9656;</b> waiting for a human to approve</div>
+  <div class="l-bar"><i></i></div>
+</div></div>
 <div class="bg-grid" aria-hidden="true"></div>
 <div class="orb o1" aria-hidden="true"></div><div class="orb o2" aria-hidden="true"></div><div class="orb o3" aria-hidden="true"></div>
 <div class="progress" id="progress" aria-hidden="true"></div>
@@ -34,6 +43,7 @@
 <main>
 <!-- HERO -->
 <section class="hero">
+  <canvas id="net" aria-hidden="true"></canvas>
   <div class="hero-grid">
     <div class="hero-copy">
       <p class="eyebrow">GTM Engineer &middot; GTM Engineer School, Cohort 5 &middot; open to full-time roles</p>
@@ -132,6 +142,36 @@
   </div>
 </section>
 
+<!-- JOURNEY (scroll-pinned) -->
+<section id="journey" class="journey">
+  <div class="wrap j-pin">
+    <div class="j-head">
+      <p class="eyebrow">Follow one signal</p>
+      <h2>From a form fill to an approved reply.</h2>
+    </div>
+    <div class="j-track" aria-label="Progress through the engine">
+      <i class="j-fill"></i>
+      <button class="j-node" aria-label="Step 1">1</button><button class="j-node" aria-label="Step 2">2</button><button class="j-node" aria-label="Step 3">3</button><button class="j-node" aria-label="Step 4">4</button><button class="j-node" aria-label="Step 5">5</button><button class="j-node human" aria-label="Step 6">6</button>
+      <i class="j-dot"></i>
+    </div>
+    <div class="j-stage">
+      <div class="j-copy">
+        <div class="j-card"><span class="big">01</span><h3>A signal arrives</h3><p>A buyer raises a hand. The engine records who, what and when, and nothing else.</p><span class="who">Engine</span></div>
+        <div class="j-card"><span class="big">02</span><h3>Match the company</h3><p>Check fit and size band, then screen out do-not-contact, vendors and partners. Ineligible enquiries stop here.</p><span class="who">Engine</span></div>
+        <div class="j-card"><span class="big">03</span><h3>Route to an owner</h3><p>Versioned rules, not a language model, decide whose desk it lands on, and the reason is saved in plain English.</p><span class="who">Engine</span></div>
+        <div class="j-card"><span class="big">04</span><h3>Start the reply clock</h3><p>A one-business-day deadline in Pacific time. If it slips, an alarm fires.</p><span class="who">Engine</span></div>
+        <div class="j-card"><span class="big">05</span><h3>Draft, then lint</h3><p>Wording comes from approved copy. A claims linter blocks prices, guarantees and unverified claims, and fails closed.</p><span class="who">Engine</span></div>
+        <div class="j-card"><span class="big">06</span><h3>A person approves and sends</h3><p>The engine never sends. Someone reads the draft, edits it and presses send.</p><span class="who human">Human</span></div>
+      </div>
+      <div class="term">
+        <div class="term-bar"><i></i><i></i><i></i><span>engine.log &middot; simulated example, invented company</span></div>
+        <pre id="j-term" aria-live="off"></pre>
+      </div>
+    </div>
+    <p class="j-hint">Scroll to move the signal through the engine. Click a number to jump.</p>
+  </div>
+</section>
+
 <!-- DEMO -->
 <section id="demo" class="section">
   <div class="section-head">
@@ -199,6 +239,12 @@
     </div>
   </div>
 </section>
+
+<!-- KINETIC TYPE -->
+<div class="kinetic" aria-hidden="true">
+  <div class="k-row"><span class="f">Signals</span><i>&rarr;</i><span>pipeline</span><i>&#9679;</i><span class="g">guardrails</span><i>&#9679;</i><span class="f">Signals</span><i>&rarr;</i><span>pipeline</span><i>&#9679;</i><span class="g">guardrails</span><i>&#9679;</i><span class="f">Signals</span><i>&rarr;</i><span>pipeline</span></div>
+  <div class="k-row"><span>human in the loop</span><i>&#9679;</i><span class="f">fails closed</span><i>&#9679;</i><span class="g">measure everything</span><i>&#9679;</i><span>human in the loop</span><i>&#9679;</i><span class="f">fails closed</span><i>&#9679;</i><span class="g">measure everything</span></div>
+</div>
 
 <!-- PROOF -->
 <section id="proof" class="section">
@@ -421,5 +467,9 @@
 
 <script src="app.js"></script>
 <script src="extras.js"></script>
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+<script src="fx.js"></script>
 </body>
 </html>
