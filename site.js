@@ -37,13 +37,6 @@
   const onScroll = () => { const h = root; bar.style.width = (h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight) * 100) + "%"; };
   addEventListener("scroll", onScroll, { passive: true }); onScroll();
 
-  /* ---- Tool ticker (tools I have actually used) ---- */
-  safe(() => {
-    const tools = ["Clay", "Sumble", "Octave", "Swan", "HubSpot", "Claude Code", "Python", "SQL", "Power BI", "Excel & Google Sheets", "MS Access", ".NET", "Angular", "Git & GitHub Actions"];
-    const track = q("#track"); if (!track) return;
-    for (let p = 0; p < 2; p++) tools.forEach((t) => { const s = document.createElement("span"); s.textContent = t; track.append(s); });
-  });
-
   /* ---- Active nav link ---- */
   safe(() => {
     const links = qa(".nav nav a");

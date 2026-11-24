@@ -5,7 +5,7 @@ const CONFIG = {
   email: "ianushkamishra29@gmail.com",
   calendly: "",   // e.g. https://cal.com/yourname/30min
   linkedin: "https://www.linkedin.com/in/anushka-m-6a635a430/",
-  github: "",     // e.g. https://github.com/yourname
+  github: "https://github.com/AnushkaMishra29",
   // Capstone client is anonymised. Replace once you have written permission to name them.
   clientName: "Tallpine",
   senderName: "the approver",
@@ -31,7 +31,7 @@ const CONFIG = {
   const mt = document.getElementById("mailtxt");
   if (mt && CONFIG.email) {
     mt.textContent = CONFIG.email; mt.href = "mailto:" + CONFIG.email;
-    const cp = document.getElementById("copymail");
+    const cp = document.getElementById("copymail"); cp.hidden = false;
     cp.addEventListener("click", () => {
       const done = () => { cp.textContent = "Copied"; setTimeout(() => { cp.textContent = "Copy"; }, 1800); };
       if (navigator.clipboard) navigator.clipboard.writeText(CONFIG.email).then(done, done); else done();
@@ -55,7 +55,7 @@ const CONFIG = {
 
 /* ---- Scroll reveal, counters, bars ---- */
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-document.querySelectorAll(".section-head,.card,.panel,.lane,.cert,.review,.principles li,.stats li,.flow").forEach(el => el.classList.add("reveal"));
+document.querySelectorAll(".section-head,.case,.card,.panel,.lane,.cert,.review,.principles li,.stats li,.flow").forEach(el => el.classList.add("reveal"));
 const io = new IntersectionObserver(es => es.forEach(e => {
   if (!e.isIntersecting) return;
   e.target.classList.add("in");

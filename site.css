@@ -153,9 +153,13 @@ h3{font:600 20px/1.3 var(--sans);letter-spacing:-.012em}
 .j-dot{position:absolute;top:50%;left:calc(18px + (100% - 36px) * var(--jp,0));width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--ink);z-index:2;pointer-events:none}
 .j-fill,.j-dot{transition:width .9s cubic-bezier(.3,.8,.2,1),left .9s cubic-bezier(.3,.8,.2,1)}
 .j-stage{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,4vw,64px);align-items:stretch}
-.j-copy{position:relative;min-height:280px}
-.j-card{position:absolute;inset:0;opacity:0;transform:translateY(18px);pointer-events:none;transition:opacity .5s,transform .5s}
-.j-card.on{opacity:1;transform:none;pointer-events:auto}
+.j-copy{position:relative}
+.js .j-copy{min-height:280px}
+.j-card{margin:0 0 30px}
+[data-js-only]{display:none}
+.js [data-js-only]{display:flex}
+.js .j-card{position:absolute;inset:0;opacity:0;transform:translateY(18px);pointer-events:none;margin:0;transition:opacity .5s,transform .5s}
+.js .j-card.on{opacity:1;transform:none;pointer-events:auto}
 .j-card .big{display:block;font:italic 400 clamp(72px,8vw,120px)/.85 var(--serif);color:var(--accent);margin-bottom:10px}
 .j-card h3{font:400 clamp(28px,2.8vw,38px)/1.1 var(--serif);margin-bottom:12px;letter-spacing:-.01em}
 .j-card p{color:var(--muted);max-width:30em;margin:0 0 14px;font-size:17px}
@@ -245,8 +249,8 @@ h3{font:600 20px/1.3 var(--sans);letter-spacing:-.012em}
 .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:26px;border-top:1px solid #35302a;font-size:14px;color:#9a937f}
 
 /* ---------- reveal ---------- */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
-.reveal.in{opacity:1;transform:none}
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
 .fx .w{display:inline-block;overflow:hidden;vertical-align:top;padding:.04em .04em .14em;margin:-.04em -.04em -.14em}
 .fx .wi{display:inline-block;transform:translateY(115%);will-change:transform}
 
@@ -299,3 +303,18 @@ html.lenis,html.lenis body{height:auto}
 .mailrow a:hover{border-color:#f08a52;color:#f08a52}
 .mailrow button{font:600 12.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--paper);background:transparent;border:1px solid rgba(244,240,230,.45);border-radius:99px;padding:8px 14px;cursor:pointer}
 .mailrow button:hover{background:var(--paper);color:var(--ink)}
+
+/* ===== Phase 2: no-JS safe, measurement notes ===== */
+.how-link{display:inline-block;margin-left:4px;font-size:13px;color:var(--ink);text-underline-offset:3px}
+.how-link:hover{color:var(--accent)}
+details.how{margin-top:18px;font-size:15px;color:var(--muted)}
+details.how summary{cursor:pointer;font:600 12.5px/1.6 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);list-style:none;display:inline-flex;align-items:center;gap:8px}
+details.how summary::-webkit-details-marker{display:none}
+details.how summary::before{content:"+";display:inline-grid;place-items:center;width:20px;height:20px;border:1px solid var(--line2);border-radius:50%;font-size:14px;line-height:1}
+details.how[open] summary::before{content:"\2212"}
+details.how p{margin:10px 0 0;max-width:42em}
+details.how b{color:var(--ink)}
+.avail{margin-top:18px;color:#c9c2ae}
+.timeline a{color:var(--ink);text-underline-offset:3px}
+.timeline a:hover{color:var(--accent)}
+.track .dup{display:none}
