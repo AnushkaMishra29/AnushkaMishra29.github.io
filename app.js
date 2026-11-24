@@ -2,7 +2,7 @@
 
 /* ---- EDIT ME: contact links. Leave "" to hide a button. ---- */
 const CONFIG = {
-  email: "anushkamishra.builds@gmail.com",
+  email: "ianushkamishra29@gmail.com",
   calendly: "",   // e.g. https://cal.com/yourname/30min
   linkedin: "https://www.linkedin.com/in/anushka-m-6a635a430/",
   github: "",     // e.g. https://github.com/yourname
