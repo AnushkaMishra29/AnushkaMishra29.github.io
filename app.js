@@ -27,8 +27,16 @@ const CONFIG = {
   set("gh", CONFIG.github);
   document.querySelectorAll('[data-cta="hire"]').forEach(a => {
     if (CONFIG.calendly) { a.href = CONFIG.calendly; a.target = "_blank"; a.rel = "noopener"; }
-    else if (CONFIG.email) { a.href = "mailto:" + CONFIG.email; if (a.classList.contains("btn-ghost")) a.textContent = "Email me"; }
   });
+  const mt = document.getElementById("mailtxt");
+  if (mt && CONFIG.email) {
+    mt.textContent = CONFIG.email; mt.href = "mailto:" + CONFIG.email;
+    const cp = document.getElementById("copymail");
+    cp.addEventListener("click", () => {
+      const done = () => { cp.textContent = "Copied"; setTimeout(() => { cp.textContent = "Copy"; }, 1800); };
+      if (navigator.clipboard) navigator.clipboard.writeText(CONFIG.email).then(done, done); else done();
+    });
+  } else if (mt) { mt.parentElement.style.display = "none"; }
   document.getElementById("yr").textContent = new Date().getFullYear();
 })();
 

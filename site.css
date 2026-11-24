@@ -293,3 +293,9 @@ html.lenis,html.lenis body{height:auto}
 .hero-name span{font:600 13px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);padding:6px 10px;border:1px solid var(--accent);border-radius:99px;transform:translateY(-4px)}
 .hero-grid{align-items:start}
 .portrait{margin-top:6px}
+
+.mailrow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:26px 0 0;font:400 clamp(22px,2.6vw,34px)/1.2 var(--serif)}
+.mailrow a{color:var(--paper);text-decoration:none;border-bottom:1px solid rgba(244,240,230,.5);padding-bottom:2px;overflow-wrap:anywhere}
+.mailrow a:hover{border-color:#f08a52;color:#f08a52}
+.mailrow button{font:600 12.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--paper);background:transparent;border:1px solid rgba(244,240,230,.45);border-radius:99px;padding:8px 14px;cursor:pointer}
+.mailrow button:hover{background:var(--paper);color:var(--ink)}
