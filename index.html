@@ -232,7 +232,7 @@
         </ol>
         <div id="draftbox" class="draftbox hidden">
           <div class="draft-top"><b>3 &middot; Draft staged for a person</b><span id="lintbadge" class="badge">unchecked</span></div>
-          <textarea id="draft" rows="9"></textarea>
+          <textarea id="draft" rows="9" aria-label="Draft reply, editable"></textarea>
           <div class="draft-actions">
             <button class="btn btn-small btn-line" id="relint" type="button">Re-run linter</button>
             <button class="btn btn-small" id="approve" type="button">Approve</button>
@@ -370,14 +370,7 @@
   </div>
 </section>
 
-<!-- REVIEWS: add only with real, permitted testimonials -->
-<section id="reviews" class="section hidden">
-  <header class="sec-head">
-    <p class="sec-no">&middot;<span>Reviews</span></p>
-    <h2>In their <em>words.</em></h2>
-  </header>
-  <div class="reviews" id="review-list"></div>
-</section>
+<!-- TODO(anushka): add a Reviews section here once you have real, permitted testimonials -->
 
 <!-- ABOUT -->
 <section id="about" class="section">
