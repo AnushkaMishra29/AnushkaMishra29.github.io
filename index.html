@@ -6,197 +6,187 @@
 <title>Anushka Mishra | GTM Engineer</title>
 <meta name="description" content="GTM engineer (GTM Engineer School, Cohort 5) building inbound, outbound and campaign systems that turn signals into pipeline, with guardrails built in. Data-science background, $1M+ in measured savings, live demo inside.">
 <meta property="og:title" content="Anushka Mishra | GTM Engineer">
-<meta property="og:description" content="GTM systems that turn signals into pipeline. Try the live inbound engine demo.">
+<meta property="og:description" content="GTM systems that turn signals into pipeline. Try the live inbound engine.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#faf9f6">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="extras.css">
-<link rel="stylesheet" href="fx.css">
-<link rel="stylesheet" href="theme.css">
+<meta property="og:image" content="photo.jpg">
+<meta name="theme-color" content="#f4f0e6">
+<link rel="preload" href="fonts/serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-<div class="bg-grid" aria-hidden="true"></div>
-<div class="orb o1" aria-hidden="true"></div><div class="orb o2" aria-hidden="true"></div><div class="orb o3" aria-hidden="true"></div>
-<div class="progress" id="progress" aria-hidden="true"></div>
+<div id="progress" aria-hidden="true"></div>
 
 <header class="nav" id="top">
-  <a class="brand" href="#top"><span class="mono-dot"></span>Anushka Mishra</a>
-  <nav>
+  <a class="brand" href="#top">Anushka Mishra</a>
+  <nav aria-label="Primary">
     <a href="#proof">Work</a>
     <a href="#journey">How I build</a>
-    <a href="#demo">Live demo</a>
+    <a href="#demo">Try it</a>
     <a href="#credentials">Credentials</a>
     <a href="#about">About</a>
-    <a class="btn btn-small" href="#contact" data-cta="hire">Let's talk</a>
+    <a class="nav-cta" href="#contact" data-cta="hire">Let's talk</a>
   </nav>
 </header>
 
 <main>
 <!-- HERO -->
 <section class="hero">
-  <canvas id="net" aria-hidden="true"></canvas>
   <div class="hero-grid">
     <div class="hero-copy">
-      <div class="who-row">
-        <span class="avatar"><b>AM</b><img src="photo.jpg" alt="Portrait of Anushka Mishra" width="56" height="56" onerror="this.remove()"></span>
-        <div><strong>Anushka Mishra</strong><span>GTM Engineer &middot; GTM Engineer School, Cohort 5 &middot; <em>open to full-time roles</em></span></div>
-      </div>
-      <h1>I build GTM systems that turn signals into pipeline, <span class="grad">with the guardrails built in.</span></h1>
-      <p class="now">Now building&nbsp;<span class="rot" id="rot">inbound engines</span><span class="caret"></span></p>
-      <p class="lead">Engineer turned analyst turned GTM engineer. I combine production engineering at Nagarro, revenue analytics, and a data-science master's at IIM Indore &amp; IIT Indore to build systems that are fast, measurable and safe to trust.</p>
+      <p class="status-line"><span class="dot"></span>Open to full-time GTM engineer roles</p>
+      <h1>I build GTM systems that turn signals into pipeline, <em>with the guardrails built in.</em></h1>
+      <p class="lead">Engineer turned analyst turned GTM engineer. Production engineering at Nagarro, revenue analytics, and a data-science master's at IIM Indore &amp; IIT Indore, applied to systems that are fast, measurable and safe to trust.</p>
       <div class="cta-row">
-        <a class="btn" href="#demo">Try a live build &rarr;</a>
-        <a class="btn btn-ghost" href="#contact" data-cta="hire">Book a 30-min call</a>
+        <a class="btn" href="#proof">See what I've built</a>
+        <a class="btn btn-line" href="#demo">Try the live engine</a>
+        <a class="link-arrow" href="#contact" data-cta="hire">Email me</a>
       </div>
     </div>
-    <div class="hero-art" aria-hidden="true">
-      <svg viewBox="0 0 440 460" class="pipe">
-        <defs>
-          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-        </defs>
-        <circle cx="220" cy="230" r="196" class="ring r1"/><circle cx="220" cy="230" r="150" class="ring r2"/>
-        <path id="trunk" d="M220 62 V410" class="trunk"/>
-        <path d="M220 62 V410" class="trunk flow"/>
-        <g filter="url(#glow)">
-          <circle r="5" fill="#4f46e5"><animateMotion dur="3.6s" repeatCount="indefinite" begin="0s"><mpath href="#trunk"/></animateMotion></circle>
-          <circle r="5" fill="#7c3aed"><animateMotion dur="3.6s" repeatCount="indefinite" begin="1.2s"><mpath href="#trunk"/></animateMotion></circle>
-          <circle r="5" fill="#d97706"><animateMotion dur="3.6s" repeatCount="indefinite" begin="2.4s"><mpath href="#trunk"/></animateMotion></circle>
-        </g>
-        <g class="hn" style="--d:0s"><rect x="120" y="30" width="200" height="50" rx="14"/><text x="220" y="52" class="t1">Signals</text><text x="220" y="69" class="t2">job posts &#183; site visits &#183; filings</text></g>
-        <g class="hn" style="--d:1.2s"><rect x="120" y="118" width="200" height="50" rx="14"/><text x="220" y="140" class="t1">Clay + Sumble</text><text x="220" y="157" class="t2">enrich &#183; match ICP</text></g>
-        <g class="hn" style="--d:2.4s"><rect x="120" y="206" width="200" height="50" rx="14"/><text x="220" y="228" class="t1">Rules engine</text><text x="220" y="245" class="t2">score &#183; route &#183; reply clock</text></g>
-        <g class="hn" style="--d:3.6s"><rect x="120" y="294" width="200" height="50" rx="14"/><text x="220" y="316" class="t1">Draft + claims check</text><text x="220" y="333" class="t2">approved wording only</text></g>
-        <g class="hn human" style="--d:4.8s"><rect x="120" y="382" width="200" height="50" rx="14"/><text x="220" y="404" class="t1">A person sends</text><text x="220" y="421" class="t2">meeting booked in HubSpot</text></g>
-        <g class="chip c1"><rect x="14" y="96" width="92" height="26" rx="13"/><text x="60" y="113">intent signal</text></g>
-        <g class="chip c2"><rect x="338" y="184" width="88" height="26" rx="13"/><text x="382" y="201">ICP fit 92</text></g>
-        <g class="chip c3"><rect x="334" y="338" width="96" height="26" rx="13"/><text x="382" y="355">lint: clean</text></g>
-      </svg>
-    </div>
+    <figure class="portrait">
+      <div class="portrait-art"><div class="portrait-frame"><img src="photo.jpg" alt="Anushka Mishra" width="720" height="900" fetchpriority="high"></div></div>
+      <figcaption><b>Anushka Mishra</b><span>GTM Engineer &middot; GTM Engineer School, Cohort 5</span></figcaption>
+    </figure>
   </div>
   <ul class="stats" id="stats">
     <li><b data-count="1" data-prefix="$" data-suffix="M+">0</b><span>measured yearly savings from an inventory model</span></li>
-    <li><b data-count="85" data-prefix="~" data-suffix="%">0</b><span>demand-planning accuracy, up from 60%; stockouts down 35%</span></li>
-    <li><b data-count="4" data-prefix="&le;" data-suffix=" hrs">0</b><span>for a catalog load that took ~1 month by hand</span></li>
-    <li><b data-count="23" data-suffix="">0</b><span>edge cases re-checked against the sponsor's written answers</span></li>
+    <li><b data-count="85" data-prefix="~" data-suffix="%">0</b><span>demand-planning accuracy, up from 60%</span></li>
+    <li><b data-count="4" data-prefix="&le;" data-suffix=" hrs">0</b><span>for a catalog load that took about a month by hand</span></li>
+    <li><b data-count="20" data-prefix="&minus;" data-suffix="%">0</b><span>effort on recurring KPI reporting at a telecom</span></li>
   </ul>
 </section>
 
-<!-- TOOL TICKER -->
+<!-- TOOLS TICKER -->
 <div class="ticker" aria-label="Tools I have used">
-  <div class="track" id="track"></div>
-  <div class="track rev" id="track2"></div>
+  <span class="ticker-label">Tools I've used</span>
+  <div class="ticker-mask"><div class="track" id="track"></div></div>
 </div>
 
 <!-- PROOF -->
 <section id="proof" class="section">
-  <div class="section-head">
-    <p class="eyebrow">Proof</p>
-    <h2>Outcomes first. Tools second.</h2>
-    <p class="sub">Four systems. Each one: the problem, what I built, what changed.</p>
-  </div>
-  <div class="cards">
-    <article class="card">
-      <span class="tag">Nagarro &middot; Data &amp; forecasting</span>
-      <div class="metric"><b>$1M+</b><span>a year in profit impact; forecast accuracy 60% to ~85%</span></div>
-      <h3>Inventory model that found $1M+ a year</h3>
-      <p><b>Problem.</b> Excess stock and stockouts at the same time, across 1,000+ SKUs.</p>
-      <p><b>Built.</b> A Power BI dashboard plus a Python forecasting model on 3+ years of sales data. My manager and stakeholders acted on it.</p>
-      <p class="result"><b>Result.</b> Demand-planning accuracy up from 60% to ~85%, excess stock &minus;28%, stockouts &minus;35%, $1M+ yearly profit impact.</p>
-    </article>
-    <article class="card">
-      <span class="tag">Nagarro &middot; Automation</span>
-      <div class="metric"><b>~1 month &rarr; 4 hrs</b><span>for a full client catalog load, still used today</span></div>
-      <h3>XML catalog pipeline: ~1 month &rarr; &le;4 hours</h3>
-      <p><b>Problem.</b> Client catalogs (specs, pricing, categories, installations) arrived as XML that differed from our database in names, structure, units and gaps. Reconciling by hand took about a month.</p>
-      <p><b>Built.</b> Validates every field, repairs structural drift, parks records that need client feedback, and loads the clean rest.</p>
-      <p class="result"><b>Result.</b> One full load in 4 hours at most. Still used by the team today.</p>
-    </article>
-    <article class="card">
-      <span class="tag">Orange Business Services &middot; Revenue ops</span>
-      <div class="metric"><b>&minus;20%</b><span>effort on recurring KPI reporting</span></div>
+  <header class="sec-head">
+    <p class="sec-no">01<span>Work</span></p>
+    <h2>Outcomes first. <em>Tools second.</em></h2>
+    <p class="sub">Four systems. For each one: the problem, what I built, what changed.</p>
+  </header>
+
+  <article class="case reveal">
+    <div class="case-metric"><b>$1M+</b><span>a year in profit impact, with forecast accuracy up from 60% to ~85%</span></div>
+    <div class="case-body">
+      <p class="tag">Nagarro &middot; Data &amp; forecasting</p>
+      <h3>An inventory model that found $1M+ a year</h3>
+      <dl>
+        <dt>Problem</dt><dd>Excess stock and stockouts at the same time, across 1,000+ SKUs.</dd>
+        <dt>Built</dt><dd>A Power BI dashboard plus a Python forecasting model on 3+ years of sales data. My manager and stakeholders acted on it.</dd>
+        <dt>Result</dt><dd class="result">Demand-planning accuracy up from 60% to ~85%, excess stock &minus;28%, stockouts &minus;35%, $1M+ yearly profit impact.</dd>
+      </dl>
+    </div>
+  </article>
+
+  <article class="case reveal">
+    <div class="case-metric"><b>~1 month<i>&darr;</i>4 hrs</b><span>for a full client catalog load, still used by the team today</span></div>
+    <div class="case-body">
+      <p class="tag">Nagarro &middot; Automation</p>
+      <h3>An XML catalog pipeline that replaced a month of manual work</h3>
+      <dl>
+        <dt>Problem</dt><dd>Client catalogs (specs, pricing, categories, installations) arrived as XML that differed from our database in names, structure, units and gaps. Reconciling by hand took about a month.</dd>
+        <dt>Built</dt><dd>Validates every field, repairs structural drift, parks records that need client feedback, and loads the clean rest.</dd>
+        <dt>Result</dt><dd class="result">One full load in 4 hours at most.</dd>
+      </dl>
+    </div>
+  </article>
+
+  <article class="case reveal">
+    <div class="case-metric"><b>&minus;20%</b><span>effort on recurring KPI reporting</span></div>
+    <div class="case-body">
+      <p class="tag">Orange Business Services &middot; Revenue ops</p>
       <h3>Order-to-cash clarity across 8 platforms</h3>
-      <p><b>Problem.</b> Quote, order, provisioning, usage, billing and revenue lived in separate internal systems.</p>
-      <p><b>Built.</b> SQL extracts and Power BI / Excel / Access reporting that compared customer revenue with carrier cost, flagging services where cost weakened profitability for pricing review.</p>
-      <p class="result"><b>Result.</b> ~20% less effort on recurring KPI reporting and a consistent view for pricing and monetization decisions.</p>
-    </article>
-    <article class="card">
-      <span class="tag">Capstone &middot; GTM engineering</span>
-      <div class="metric"><b>1 business day</b><span>to a drafted, claims-checked reply, or an alarm fires</span></div>
+      <dl>
+        <dt>Problem</dt><dd>Quote, order, provisioning, usage, billing and revenue lived in separate internal systems.</dd>
+        <dt>Built</dt><dd>SQL extracts and Power BI / Excel / Access reporting that compared customer revenue with carrier cost, flagging services where cost weakened profitability for pricing review.</dd>
+        <dt>Result</dt><dd class="result">~20% less effort on recurring KPI reporting and a consistent view for pricing and monetization decisions.</dd>
+      </dl>
+    </div>
+  </article>
+
+  <article class="case reveal">
+    <div class="case-metric"><b>1 day</b><span>to a drafted, claims-checked reply, or an alarm fires</span></div>
+    <div class="case-body">
+      <p class="tag">Capstone &middot; GTM engineering</p>
       <h3>An inbound engine with guardrails</h3>
-      <p><b>Problem.</b> Slow, uneven replies to buyers who already raised a hand.</p>
-      <p><b>Built.</b> Match, route, reply clock, draft and claims linter, wired through a CRM, with a person approving every send.</p>
-      <p class="result"><b>Result.</b> A drafted reply inside one business day or an alarm fires. Built for an early-stage enterprise-AI company; applauded at Demo Day.</p>
-    </article>
-  </div>
+      <dl>
+        <dt>Problem</dt><dd>Slow, uneven replies to buyers who already raised a hand.</dd>
+        <dt>Built</dt><dd>Match, route, reply clock, draft and claims linter, wired through a CRM, with a person approving every send.</dd>
+        <dt>Result</dt><dd class="result">A drafted reply inside one business day or an alarm fires. Built for an early-stage enterprise-AI company and applauded at Demo Day.</dd>
+      </dl>
+    </div>
+  </article>
 </section>
 
-<!-- WHAT I BUILD -->
+<!-- RANGE -->
 <section id="build" class="section">
-  <div class="section-head">
-    <p class="eyebrow">Range</p>
-    <h2>Where I can contribute.</h2>
-    <p class="sub">Inbound is shipped. Outbound and campaign analytics are where I am growing, and each lane is labelled with its true status.</p>
-  </div>
+  <header class="sec-head">
+    <p class="sec-no">02<span>Range</span></p>
+    <h2>Where I can <em>contribute.</em></h2>
+    <p class="sub">Inbound is shipped. Outbound and campaign analytics are where I am growing, and each lane carries its true status.</p>
+  </header>
   <div class="lanes">
-    <article class="lane">
-      <span class="status shipped">Shipped</span>
+    <article class="lane reveal">
+      <p class="state shipped"><span></span>Shipped</p>
       <h3>Inbound</h3>
       <p>Match, route, reply clock, draft and claims check for every enquiry, with a person approving each send. Built and demoed in my GTM Engineer School capstone.</p>
-      <a href="#demo">Try the demo &rarr;</a>
+      <a class="link-arrow" href="#demo">Try the engine</a>
     </article>
-    <article class="lane">
-      <span class="status progress">In progress</span>
+    <article class="lane reveal">
+      <p class="state progress"><span></span>In progress</p>
       <h3>Outbound</h3>
       <p>Working through the Clay outbound certification: signal-based sourcing, enrichment waterfalls, scoring and personalised sequences.</p>
-      <a href="#credentials">See credentials &rarr;</a>
+      <a class="link-arrow" href="#credentials">See credentials</a>
     </article>
-    <article class="lane">
-      <span class="status next">Next</span>
+    <article class="lane reveal">
+      <p class="state next"><span></span>Next</p>
       <h3>Campaigns &amp; analytics</h3>
       <p>Applying my forecasting and revenue-analysis background to campaign measurement: which triggers and messages actually book meetings.</p>
-      <a href="#proof">See the analytics work &rarr;</a>
+      <a class="link-arrow" href="#proof">See the analytics work</a>
     </article>
   </div>
 </section>
 
-<!-- JOURNEY (scroll-pinned) -->
+<!-- JOURNEY (autoplay) -->
 <section id="journey" class="journey section">
-  <div class="wrap j-pin">
-    <div class="j-head">
-      <p class="eyebrow">Follow one signal</p>
-      <h2>From a form fill to an approved reply.</h2>
-      <p class="sub">One enquiry, followed through the engine I built. Simulated, with an invented company.</p>
-    </div>
-    <div class="j-track" aria-label="Progress through the engine">
-      <i class="j-fill"></i>
-      <button class="j-node" aria-label="Step 1">1</button><button class="j-node" aria-label="Step 2">2</button><button class="j-node" aria-label="Step 3">3</button><button class="j-node" aria-label="Step 4">4</button><button class="j-node" aria-label="Step 5">5</button><button class="j-node human" aria-label="Step 6">6</button>
-      <i class="j-dot"></i>
-    </div>
-    <div class="j-stage">
-      <div class="j-copy">
-        <div class="j-card"><span class="big">01</span><h3>A signal arrives</h3><p>A buyer raises a hand. The engine records who, what and when, and nothing else.</p><span class="who">Engine</span></div>
-        <div class="j-card"><span class="big">02</span><h3>Match the company</h3><p>Check fit and size band, then screen out do-not-contact, vendors and partners. Ineligible enquiries stop here.</p><span class="who">Engine</span></div>
-        <div class="j-card"><span class="big">03</span><h3>Route to an owner</h3><p>Versioned rules, not a language model, decide whose desk it lands on, and the reason is saved in plain English.</p><span class="who">Engine</span></div>
-        <div class="j-card"><span class="big">04</span><h3>Start the reply clock</h3><p>A one-business-day deadline in Pacific time. If it slips, an alarm fires.</p><span class="who">Engine</span></div>
-        <div class="j-card"><span class="big">05</span><h3>Draft, then lint</h3><p>Wording comes from approved copy. A claims linter blocks prices, guarantees and unverified claims, and fails closed.</p><span class="who">Engine</span></div>
-        <div class="j-card"><span class="big">06</span><h3>A person approves and sends</h3><p>The engine never sends. Someone reads the draft, edits it and presses send.</p><span class="who human">Human</span></div>
-      </div>
-      <div class="term">
-        <div class="term-bar"><i></i><i></i><i></i><span>engine.log &middot; simulated example, invented company</span></div>
-        <pre id="j-term" aria-live="off"></pre>
-      </div>
-    </div>
-    <p class="j-note">Plays automatically. Hover to pause, click a step to jump, or keep scrolling.</p>
+  <header class="sec-head">
+    <p class="sec-no">03<span>How I build</span></p>
+    <h2>One signal, from form fill to <em>approved reply.</em></h2>
+    <p class="sub">Followed through the engine I built. Simulated, with an invented company.</p>
+  </header>
+  <div class="j-track" aria-label="Steps in the engine">
+    <i class="j-fill"></i>
+    <button class="j-node" aria-label="Step 1">1</button><button class="j-node" aria-label="Step 2">2</button><button class="j-node" aria-label="Step 3">3</button><button class="j-node" aria-label="Step 4">4</button><button class="j-node" aria-label="Step 5">5</button><button class="j-node human" aria-label="Step 6">6</button>
+    <i class="j-dot"></i>
   </div>
+  <div class="j-stage">
+    <div class="j-copy">
+      <div class="j-card"><span class="big">01</span><h3>A signal arrives</h3><p>A buyer raises a hand. The engine records who, what and when, and nothing else.</p><span class="who">Engine</span></div>
+      <div class="j-card"><span class="big">02</span><h3>Match the company</h3><p>Check fit and size band, then screen out do-not-contact, vendors and partners. Ineligible enquiries stop here.</p><span class="who">Engine</span></div>
+      <div class="j-card"><span class="big">03</span><h3>Route to an owner</h3><p>Versioned rules, not a language model, decide whose desk it lands on, and the reason is saved in plain English.</p><span class="who">Engine</span></div>
+      <div class="j-card"><span class="big">04</span><h3>Start the reply clock</h3><p>A one-business-day deadline in Pacific time. If it slips, an alarm fires.</p><span class="who">Engine</span></div>
+      <div class="j-card"><span class="big">05</span><h3>Draft, then lint</h3><p>Wording comes from approved copy. A claims linter blocks prices, guarantees and unverified claims, and fails closed.</p><span class="who">Engine</span></div>
+      <div class="j-card"><span class="big">06</span><h3>A person approves and sends</h3><p>The engine never sends. Someone reads the draft, edits it and presses send.</p><span class="who human">Human</span></div>
+    </div>
+    <div class="term">
+      <div class="term-bar"><i></i><i></i><i></i><span>engine.log &middot; simulated</span></div>
+      <pre id="j-term" aria-live="off"></pre>
+    </div>
+  </div>
+  <p class="j-note">Plays on its own. Hover to pause, or click a step to jump to it.</p>
 </section>
 
-<!-- DEMO -->
+<!-- TRY IT -->
 <section id="demo" class="section">
-  <div class="section-head">
-    <p class="eyebrow">Interactive &middot; inbound lane</p>
-    <h2>Try one of my builds: an inbound engine.</h2>
-    <p class="sub">Submit an invented enquiry and watch it matched, routed, put on a reply clock, drafted and safety-checked. A person always presses send. Edit the draft to trip the claims linter.</p>
-  </div>
+  <header class="sec-head">
+    <p class="sec-no">04<span>Hands on</span></p>
+    <h2>Try out <em>what I built.</em></h2>
+    <p class="sub">An inbound engine, running in your browser. Submit an invented enquiry and watch it matched, routed, put on a reply clock, drafted and safety-checked. A person always presses send. Edit the draft to trip the claims linter.</p>
+  </header>
 
   <div class="demo">
     <form id="enq" class="panel form" autocomplete="off">
@@ -232,7 +222,7 @@
         </label>
       </div>
       <button class="btn" type="submit">Run the engine</button>
-      <p class="fine">Everything here is simulated in your browser with invented companies and rules that mirror the real engine's structure. No data leaves the page.</p>
+      <p class="fine">Everything here is simulated in your browser with invented companies and rules that mirror the real engine's structure. No data leaves the page. Tested on invented enquiries only; no real user has tried the engine yet.</p>
     </form>
 
     <div class="panel out" id="out" aria-live="polite">
@@ -248,9 +238,9 @@
         <div class="draft-top"><b>3 &middot; Draft staged for a person</b><span id="lintbadge" class="badge">unchecked</span></div>
         <textarea id="draft" rows="9"></textarea>
         <div class="draft-actions">
-          <button class="btn btn-small btn-ghost" id="relint" type="button">Re-run linter</button>
+          <button class="btn btn-small btn-line" id="relint" type="button">Re-run linter</button>
           <button class="btn btn-small" id="approve" type="button">Approve</button>
-          <button class="btn btn-small btn-ghost" id="send" type="button" disabled title="Only a human sends, by design">Send (human only)</button>
+          <button class="btn btn-small btn-line" id="send" type="button" disabled title="Only a human sends, by design">Send (human only)</button>
         </div>
         <p id="status" class="fine"></p>
       </div>
@@ -260,10 +250,10 @@
 
 <!-- CREDENTIALS -->
 <section id="credentials" class="section">
-  <div class="section-head">
-    <p class="eyebrow">Credentials</p>
-    <h2>Trained, tested and certified.</h2>
-  </div>
+  <header class="sec-head">
+    <p class="sec-no">05<span>Credentials</span></p>
+    <h2>Trained, tested <em>and certified.</em></h2>
+  </header>
   <div class="creds">
     <figure class="cert">
       <a href="certificate-ges-cohort5.jpg" target="_blank" rel="noopener">
@@ -271,13 +261,13 @@
       </a>
     </figure>
     <div class="cred-list">
-      <div class="panel">
-        <span class="status shipped">Completed</span>
+      <div class="cred">
+        <p class="state shipped"><span></span>Completed</p>
         <h3>GTM Engineer School, Cohort 5</h3>
         <p>8 weeks of live sessions and a capstone project presented at Demo Day. Capstone stack: Python, Clay, Sumble, Swan and Octave. Issued November 2026. Credential ID GES-C5-2026-AM.</p>
       </div>
-      <div class="panel">
-        <span class="status progress">In progress</span>
+      <div class="cred">
+        <p class="state progress"><span></span>In progress</p>
         <h3>Clay outbound certification</h3>
         <p>Building signal-based outbound workflows in Clay. I'll publish the result here when it is complete.</p>
       </div>
@@ -287,22 +277,22 @@
 
 <!-- REVIEWS (hidden until CONFIG.reviews has entries) -->
 <section id="reviews" class="section hidden">
-  <div class="section-head">
-    <p class="eyebrow">What people say</p>
-    <h2>In their words.</h2>
-  </div>
+  <header class="sec-head">
+    <p class="sec-no">&middot;<span>Reviews</span></p>
+    <h2>In their <em>words.</em></h2>
+  </header>
   <div class="reviews" id="review-list"></div>
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="section">
-  <div class="section-head">
-    <p class="eyebrow">About</p>
-    <h2>Engineer who reads the P&amp;L.</h2>
-  </div>
+  <header class="sec-head">
+    <p class="sec-no">06<span>About</span></p>
+    <h2>An engineer who <em>reads the P&amp;L.</em></h2>
+  </header>
   <div class="about">
     <div class="about-text">
-      <div class="about-id"><span class="avatar lg"><b>AM</b><img src="photo.jpg" alt="" width="96" height="96" onerror="this.remove()"></span><div><strong>Anushka Mishra</strong><span>Engineer &middot; analyst &middot; GTM engineer</span></div></div>
+      <p class="pull">I moved from building software to asking where the money leaks, and GTM engineering is where those two meet.</p>
       <p>I started as a full-stack engineer (.NET, Angular, SQL) building configurators for 30,000+ SKUs. I moved into analytics because the best engineering question is usually a business question: where is money leaking? I then went deep on revenue-versus-cost at a telecom, and now I am completing an MS in Data Science &amp; Management at IIM Indore and IIT Indore.</p>
       <p>GTM engineering is where those threads meet: systems thinking, clean data, and a measurable commercial outcome.</p>
     </div>
@@ -315,30 +305,31 @@
     </ul>
   </div>
 </section>
-
-<!-- CONTACT -->
-<section id="contact" class="section contact">
-  <h2>Hiring a GTM engineer?</h2>
-  <p class="sub">I will bring the systems thinking, the data discipline and the guardrails. Tell me the revenue problem.</p>
-  <div class="cta-row center">
-    <a class="btn" id="mail" href="#">Email me</a>
-    <a class="btn btn-ghost" id="cal" href="#" target="_blank" rel="noopener">Book a 30-min call</a>
-    <a class="btn btn-ghost" id="li" href="#" target="_blank" rel="noopener">LinkedIn</a>
-    <a class="btn btn-ghost" id="gh" href="#" target="_blank" rel="noopener">GitHub</a>
-  </div>
-</section>
 </main>
 
-<footer class="foot">
-  <span>&copy; <span id="yr"></span> Anushka Mishra</span>
-  <span>Capstone client anonymised. All demo data is invented.</span>
-</footer>
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="contact-in">
+    <p class="sec-no inv">07<span>Contact</span></p>
+    <h2>Hiring a GTM engineer? <em>Tell me the revenue problem.</em></h2>
+    <p class="sub">I'll bring the systems thinking, the data discipline and the guardrails.</p>
+    <div class="cta-row">
+      <a class="btn btn-accent" id="mail" href="#">Email me</a>
+      <a class="btn btn-line-inv" id="cal" href="#" target="_blank" rel="noopener">Book a 30-min call</a>
+      <a class="btn btn-line-inv" id="li" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-line-inv" id="gh" href="#" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+  <footer class="foot">
+    <span>&copy; <span id="yr"></span> Anushka Mishra</span>
+    <span>Capstone client anonymised. All demo data is invented.</span>
+  </footer>
+</section>
 
 <script src="app.js"></script>
-<script src="extras.js"></script>
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="vendor/lenis.min.js"></script>
-<script src="fx.js"></script>
+<script src="site.js"></script>
 </body>
 </html>
