@@ -428,3 +428,6 @@ h1 em,h2 em,.demo-title em{color:var(--ink)}
 .featured blockquote p{margin:0;font:400 clamp(24px,2.8vw,38px)/1.2 var(--serif);letter-spacing:-.01em}
 .featured blockquote strong{font-weight:400;font-style:italic}
 .featured .feat-src{margin:0 0 18px;color:var(--muted);font-size:15.5px}
+.feat-shot{margin:0 0 18px}
+.feat-shot img{display:block;width:100%;max-width:640px;height:auto;border-radius:10px;border:1px solid var(--line);transition:transform .3s}
+.feat-shot a:hover img{transform:translateY(-3px)}
