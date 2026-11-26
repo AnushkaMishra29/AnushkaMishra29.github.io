@@ -31,16 +31,16 @@
 </script>
 </head>
 <body>
-<a class="skip" href="#proof">Skip to content</a>
+<a class="skip" href="#how">Skip to content</a>
 <div id="progress" aria-hidden="true"></div>
 
 <header class="nav" id="top">
   <a class="brand" href="#top">Anushka Mishra</a>
   <nav aria-label="Primary">
-    <a href="#proof">Work</a>
     <a href="#how">How I build</a>
     <a href="#demo">Try it</a>
     <a href="#credentials">Credentials</a>
+    <a href="#proof">Work</a>
     <a href="#about">About</a>
     <a class="nav-cta" href="#contact" data-cta="hire">Let's talk</a>
   </nav>
@@ -72,86 +72,10 @@
   </ul>
 </section>
 
-<!-- WORK -->
-<section id="proof" class="section">
-  <header class="sec-head">
-    <p class="sec-no">01<span>Work</span></p>
-    <h2>Outcomes first. <em>Tools second.</em></h2>
-    <p class="sub">Four systems. For each one: the problem, what I built, what changed.</p>
-  </header>
-
-  <article class="case flagship" id="case-engine">
-    <div class="case-metric"><b>1 day</b><span>reply deadline the engine enforces, with an alarm if it is missed</span></div>
-    <div class="case-body">
-      <p class="tag">Flagship &middot; Inbound</p>
-      <h3>An inbound engine with guardrails</h3>
-      <dl>
-        <dt>Problem</dt><dd>Slow, uneven replies to buyers who already raised a hand.</dd>
-        <dt>Built</dt><dd>Match, route, reply clock, draft and claims linter, wired through a CRM, with a person approving every send.</dd>
-        <dt>Result</dt><dd class="result">Every enquiry gets an owner, a one-business-day reply clock and a claims-checked draft for a person to approve. Built for an early-stage enterprise-AI company.</dd>
-      </dl>
-      <ul class="chips"><li>Python</li><li>Clay</li><li>HubSpot</li><li>Sumble</li><li>Swan</li><li>GitHub Actions</li></ul>
-      <details class="how"><summary>Guardrails &amp; edge cases</summary><p>Do-not-contact companies, vendors and partners are screened out before anything is drafted. Wording comes from approved copy, and a claims linter blocks prices, guarantees and unverified claims. It fails closed: if its blocklist is missing, nothing is marked clean. The engine never sends. A person approves every reply, and approval and sending are timestamped separately.</p></details>
-      <details class="how"><summary>How this was measured</summary><p><b>1 business day:</b> a design target, not a measured outcome. The reply clock gives every enquiry a deadline of 17:00 Pacific on the next business day and fires an alarm if it is missed. The engine was validated on invented enquiries; the client's site had no live inbound volume yet.</p></details>
-      <!-- TODO(anushka): add "What I'd do next" (2-3 honest bullets) and an architecture diagram or a Loom walkthrough when ready -->
-    </div>
-  </article>
-
-  <article class="case" id="case-forecast">
-    <div class="case-metric"><b>$1M+</b><span>a year in estimated profit impact, with forecast accuracy up from 60% to ~85%</span></div>
-    <div class="case-body">
-      <p class="tag">Data &middot; Forecasting</p>
-      <h3>An inventory model that found $1M+ a year</h3>
-      <p class="lens">GTM lens: a signal-to-decision loop, the same shape as signal-to-pipeline.</p>
-      <dl>
-        <dt>Problem</dt><dd>Excess stock and stockouts at the same time, across 1,000+ SKUs.</dd>
-        <dt>Built</dt><dd>A Power BI dashboard plus a Python forecasting model on 3+ years of sales data. My manager and stakeholders acted on it.</dd>
-        <dt>Result</dt><dd class="result">Demand-planning accuracy up from 60% to ~85%, excess stock &minus;28%, stockouts &minus;35%, $1M+ estimated yearly profit impact.</dd>
-      </dl>
-      <ul class="chips"><li>Python</li><li>Power BI</li></ul>
-      <details class="how"><summary>How this was measured</summary><p><b>Profit impact:</b> a calculated estimate of one year of profit from acting on the model's recommendations, worked out with my manager and stakeholders, who acted on it. <b>Accuracy and stock levels:</b> before-and-after comparison on 3+ years of sales data across 1,000+ SKUs.</p></details>
-      <!-- TODO(anushka): add accuracy metric name, baseline period and the year of the profit calculation -->
-    </div>
-  </article>
-
-  <article class="case" id="case-catalog">
-    <div class="case-metric"><b>~1 month<i>&darr;</i>4 hrs</b><span>for a full client catalog load, still used by the team today</span></div>
-    <div class="case-body">
-      <p class="tag">Data &middot; Automation</p>
-      <h3>An XML catalog pipeline that replaced a month of manual work</h3>
-      <p class="lens">GTM lens: the same validate, repair and park-for-review pattern that keeps GTM data clean.</p>
-      <dl>
-        <dt>Problem</dt><dd>Client catalogs (specs, pricing, categories, installations) arrived as XML that differed from our database in names, structure, units and gaps. Reconciling by hand took about a month.</dd>
-        <dt>Built</dt><dd>Validates every field, repairs structural drift, parks records that need client feedback, and loads the clean rest.</dd>
-        <dt>Result</dt><dd class="result">One full load in 4 hours at most.</dd>
-      </dl>
-      <details class="how"><summary>How this was measured</summary><p><b>Before:</b> reconciling a client catalog by hand took the team about a month. <b>After:</b> a full load, including my review of the output, takes 4 hours at most. This held across many client catalogs, and the team still uses the pipeline.</p></details>
-      <!-- TODO(anushka): add the number of catalogs, the date range and the stack used -->
-    </div>
-  </article>
-
-  <article class="case" id="case-revops">
-    <div class="case-metric"><b>&minus;20%</b><span>effort on recurring KPI reporting</span></div>
-    <div class="case-body">
-      <p class="tag">RevOps &middot; Reporting</p>
-      <h3>Order-to-cash clarity across 8 platforms</h3>
-      <p class="lens">GTM lens: revenue-versus-cost visibility, the base layer for pricing and pipeline decisions.</p>
-      <dl>
-        <dt>Problem</dt><dd>Quote, order, provisioning, usage, billing and revenue lived in separate internal systems.</dd>
-        <dt>Built</dt><dd>SQL extracts and Power BI / Excel / Access reporting that compared customer revenue with carrier cost, flagging services where cost weakened profitability for pricing review.</dd>
-        <dt>Result</dt><dd class="result">~20% less effort on recurring KPI reporting and a consistent view for pricing and monetization decisions.</dd>
-      </dl>
-      <ul class="chips"><li>SQL</li><li>Power BI</li><li>Excel</li><li>MS Access</li></ul>
-      <details class="how"><summary>How this was measured</summary><p><b>~20%:</b> my estimate of the reduction in effort on recurring KPI reports after I consolidated them into one Power BI, Excel and Access workflow. <b>8 platforms:</b> the internal billing, order and revenue systems the extracts drew from. Period: Aug&ndash;Oct 2025, full-time role.</p></details>
-      <!-- TODO(anushka): add hours per report before and after, if you have them -->
-    </div>
-  </article>
-</section>
-
 <!-- HOW I BUILD + TRY IT -->
 <section id="how" class="section">
   <header class="sec-head">
-    <p class="sec-no">02<span>How I build</span></p>
+    <p class="sec-no">01<span>How I build</span></p>
     <h2>How a signal becomes <em>an approved reply.</em></h2>
     <p class="sub">Six steps, shown with an invented company. Then run one yourself.</p>
   </header>
@@ -245,97 +169,10 @@
   </div>
 </section>
 
-<!-- WHAT I CAN OWN -->
-<section id="build" class="section">
-  <header class="sec-head">
-    <p class="sec-no">03<span>What I can own</span></p>
-    <h2>What I can own <em>for you.</em></h2>
-    <p class="sub">Inbound is shipped. Outbound and campaign analytics are where I am growing, and each lane carries its true status.</p>
-  </header>
-  <div class="lanes">
-    <article class="lane">
-      <p class="state shipped"><span></span>Shipped</p>
-      <h3>Inbound</h3>
-      <ul class="deliv">
-        <li>Lead routing with a reply clock and alarms</li>
-        <li>Claims-checked draft replies, approved by a person</li>
-        <li>Versioned rules, with a plain-English reason for every decision</li>
-      </ul>
-      <a class="link-arrow" href="#demo">Run the demo</a>
-    </article>
-    <article class="lane">
-      <p class="state progress"><span></span>In progress</p>
-      <h3>Outbound</h3>
-      <ul class="deliv">
-        <li>Signal-based list building and fit scoring</li>
-        <li>Enrichment waterfalls with cost per record</li>
-        <li>Sequences a person approves before they go out</li>
-      </ul>
-      <p class="plan">Planned build. I am working through the Clay outbound certification.</p>
-    </article>
-    <article class="lane">
-      <p class="state next"><span></span>Next</p>
-      <h3>Campaigns &amp; analytics</h3>
-      <ul class="deliv">
-        <li>Pipeline attribution by trigger and message</li>
-        <li>Experiments with sample sizes stated up front</li>
-        <li>A weekly report a founder can act on</li>
-      </ul>
-      <a class="link-arrow" href="#proof">See the analytics work</a>
-    </article>
-  </div>
-</section>
-
-<!-- TOOLS -->
-<section id="tools" class="section">
-  <header class="sec-head">
-    <p class="sec-no">04<span>Tools</span></p>
-    <h2>Tools I've <em>actually used.</em></h2>
-    <p class="sub">Only tools that appear in the work above, grouped by the job they did.</p>
-  </header>
-  <!-- TODO(anushka): add a proficiency tag (Daily / Proficient / Familiar) to each tool, then show it in a .lvl span -->
-  <div class="toolgrid">
-    <div class="tgroup">
-      <h3>Data &amp; enrichment</h3>
-      <ul>
-        <li><b>Clay</b><span>ICP matching, revenue lookups and enrichment tables in the capstone</span></li>
-        <li><b>Sumble</b><span>Organization and technology data; I compared its revenue figures with filings across 110 companies</span></li>
-        <li><b>Swan</b><span>Organization-level visitor identification, with person-level matches dropped at ingest</span></li>
-        <li><b>Octave</b><span>AI drafting. I tested it against approved wording and switched it off when it rewrote claims</span></li>
-      </ul>
-    </div>
-    <div class="tgroup">
-      <h3>CRM</h3>
-      <ul>
-        <li><b>HubSpot</b><span>System of record in the capstone: forms, contacts, tickets and tasks</span></li>
-        <li><b>Salesforce</b><span>Lead management certification</span></li>
-      </ul>
-    </div>
-    <div class="tgroup">
-      <h3>Automation &amp; code</h3>
-      <ul>
-        <li><b>Python</b><span>Forecasting models and the rules engine</span></li>
-        <li><b>Claude Code</b><span>Used to build, test and document the engine</span></li>
-        <li><b>Git &amp; GitHub Actions</b><span>Version control for rules and a scheduled run of the engine</span></li>
-        <li><b>.NET &amp; Angular</b><span>Production web applications at Nagarro</span></li>
-      </ul>
-    </div>
-    <div class="tgroup">
-      <h3>Analytics</h3>
-      <ul>
-        <li><b>SQL</b><span>Extracts across billing and revenue platforms; catalog database work</span></li>
-        <li><b>Power BI</b><span>Inventory and KPI dashboards for managers and stakeholders</span></li>
-        <li><b>Excel &amp; Google Sheets</b><span>Trackers, analysis and reporting</span></li>
-        <li><b>MS Access</b><span>Recurring reports at Orange Business Services</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
 <!-- CREDENTIALS -->
 <section id="credentials" class="section">
   <header class="sec-head">
-    <p class="sec-no">05<span>Credentials</span></p>
+    <p class="sec-no">02<span>Credentials</span></p>
     <h2>Trained, tested <em>and certified.</em></h2>
   </header>
   <div class="creds">
@@ -384,6 +221,169 @@
 </section>
 
 <!-- TODO(anushka): add a Reviews section here once you have real, permitted testimonials -->
+
+<!-- WORK -->
+<section id="proof" class="section">
+  <header class="sec-head">
+    <p class="sec-no">03<span>Work</span></p>
+    <h2>Outcomes first. <em>Tools second.</em></h2>
+    <p class="sub">Four systems. For each one: the problem, what I built, what changed.</p>
+  </header>
+
+  <article class="case flagship" id="case-engine">
+    <div class="case-metric"><b>1 day</b><span>reply deadline the engine enforces, with an alarm if it is missed</span></div>
+    <div class="case-body">
+      <p class="tag">Flagship &middot; Inbound</p>
+      <h3>An inbound engine with guardrails</h3>
+      <dl>
+        <dt>Problem</dt><dd>Slow, uneven replies to buyers who already raised a hand.</dd>
+        <dt>Built</dt><dd>Match, route, reply clock, draft and claims linter, wired through a CRM, with a person approving every send.</dd>
+        <dt>Result</dt><dd class="result">Every enquiry gets an owner, a one-business-day reply clock and a claims-checked draft for a person to approve. Built for an early-stage enterprise-AI company.</dd>
+      </dl>
+      <ul class="chips"><li>Python</li><li>Clay</li><li>HubSpot</li><li>Sumble</li><li>Swan</li><li>GitHub Actions</li></ul>
+      <details class="how"><summary>Guardrails &amp; edge cases</summary><p>Do-not-contact companies, vendors and partners are screened out before anything is drafted. Wording comes from approved copy, and a claims linter blocks prices, guarantees and unverified claims. It fails closed: if its blocklist is missing, nothing is marked clean. The engine never sends. A person approves every reply, and approval and sending are timestamped separately.</p></details>
+      <details class="how"><summary>How this was measured</summary><p><b>1 business day:</b> a design target, not a measured outcome. The reply clock gives every enquiry a deadline of 17:00 Pacific on the next business day and fires an alarm if it is missed. The engine was validated on invented enquiries; the client's site had no live inbound volume yet.</p></details>
+      <!-- TODO(anushka): add "What I'd do next" (2-3 honest bullets) and an architecture diagram or a Loom walkthrough when ready -->
+    </div>
+  </article>
+
+  <article class="case" id="case-forecast">
+    <div class="case-metric"><b>$1M+</b><span>a year in estimated profit impact, with forecast accuracy up from 60% to ~85%</span></div>
+    <div class="case-body">
+      <p class="tag">Data &middot; Forecasting</p>
+      <h3>An inventory model that found $1M+ a year</h3>
+      <p class="lens">GTM lens: a signal-to-decision loop, the same shape as signal-to-pipeline.</p>
+      <dl>
+        <dt>Problem</dt><dd>Excess stock and stockouts at the same time, across 1,000+ SKUs.</dd>
+        <dt>Built</dt><dd>A Power BI dashboard plus a Python forecasting model on 3+ years of sales data. My manager and stakeholders acted on it.</dd>
+        <dt>Result</dt><dd class="result">Demand-planning accuracy up from 60% to ~85%, excess stock &minus;28%, stockouts &minus;35%, $1M+ estimated yearly profit impact.</dd>
+      </dl>
+      <ul class="chips"><li>Python</li><li>Power BI</li></ul>
+      <details class="how"><summary>How this was measured</summary><p><b>Profit impact:</b> a calculated estimate of one year of profit from acting on the model's recommendations, worked out with my manager and stakeholders, who acted on it. <b>Accuracy and stock levels:</b> before-and-after comparison on 3+ years of sales data across 1,000+ SKUs.</p></details>
+      <!-- TODO(anushka): add accuracy metric name, baseline period and the year of the profit calculation -->
+    </div>
+  </article>
+
+  <article class="case" id="case-catalog">
+    <div class="case-metric"><b>~1 month<i>&darr;</i>4 hrs</b><span>for a full client catalog load, still used by the team today</span></div>
+    <div class="case-body">
+      <p class="tag">Data &middot; Automation</p>
+      <h3>An XML catalog pipeline that replaced a month of manual work</h3>
+      <p class="lens">GTM lens: the same validate, repair and park-for-review pattern that keeps GTM data clean.</p>
+      <dl>
+        <dt>Problem</dt><dd>Client catalogs (specs, pricing, categories, installations) arrived as XML that differed from our database in names, structure, units and gaps. Reconciling by hand took about a month.</dd>
+        <dt>Built</dt><dd>Validates every field, repairs structural drift, parks records that need client feedback, and loads the clean rest.</dd>
+        <dt>Result</dt><dd class="result">One full load in 4 hours at most.</dd>
+      </dl>
+      <details class="how"><summary>How this was measured</summary><p><b>Before:</b> reconciling a client catalog by hand took the team about a month. <b>After:</b> a full load, including my review of the output, takes 4 hours at most. This held across many client catalogs, and the team still uses the pipeline.</p></details>
+      <!-- TODO(anushka): add the number of catalogs, the date range and the stack used -->
+    </div>
+  </article>
+
+  <article class="case" id="case-revops">
+    <div class="case-metric"><b>&minus;20%</b><span>effort on recurring KPI reporting</span></div>
+    <div class="case-body">
+      <p class="tag">RevOps &middot; Reporting</p>
+      <h3>Order-to-cash clarity across 8 platforms</h3>
+      <p class="lens">GTM lens: revenue-versus-cost visibility, the base layer for pricing and pipeline decisions.</p>
+      <dl>
+        <dt>Problem</dt><dd>Quote, order, provisioning, usage, billing and revenue lived in separate internal systems.</dd>
+        <dt>Built</dt><dd>SQL extracts and Power BI / Excel / Access reporting that compared customer revenue with carrier cost, flagging services where cost weakened profitability for pricing review.</dd>
+        <dt>Result</dt><dd class="result">~20% less effort on recurring KPI reporting and a consistent view for pricing and monetization decisions.</dd>
+      </dl>
+      <ul class="chips"><li>SQL</li><li>Power BI</li><li>Excel</li><li>MS Access</li></ul>
+      <details class="how"><summary>How this was measured</summary><p><b>~20%:</b> my estimate of the reduction in effort on recurring KPI reports after I consolidated them into one Power BI, Excel and Access workflow. <b>8 platforms:</b> the internal billing, order and revenue systems the extracts drew from. Period: Aug&ndash;Oct 2025, full-time role.</p></details>
+      <!-- TODO(anushka): add hours per report before and after, if you have them -->
+    </div>
+  </article>
+</section>
+
+<!-- WHAT I CAN OWN -->
+<section id="build" class="section">
+  <header class="sec-head">
+    <p class="sec-no">04<span>What I can own</span></p>
+    <h2>What I can own <em>for you.</em></h2>
+    <p class="sub">Inbound is shipped. Outbound and campaign analytics are where I am growing, and each lane carries its true status.</p>
+  </header>
+  <div class="lanes">
+    <article class="lane">
+      <p class="state shipped"><span></span>Shipped</p>
+      <h3>Inbound</h3>
+      <ul class="deliv">
+        <li>Lead routing with a reply clock and alarms</li>
+        <li>Claims-checked draft replies, approved by a person</li>
+        <li>Versioned rules, with a plain-English reason for every decision</li>
+      </ul>
+      <a class="link-arrow" href="#demo">Run the demo</a>
+    </article>
+    <article class="lane">
+      <p class="state progress"><span></span>In progress</p>
+      <h3>Outbound</h3>
+      <ul class="deliv">
+        <li>Signal-based list building and fit scoring</li>
+        <li>Enrichment waterfalls with cost per record</li>
+        <li>Sequences a person approves before they go out</li>
+      </ul>
+      <p class="plan">Planned build. I am working through the Clay outbound certification.</p>
+    </article>
+    <article class="lane">
+      <p class="state next"><span></span>Next</p>
+      <h3>Campaigns &amp; analytics</h3>
+      <ul class="deliv">
+        <li>Pipeline attribution by trigger and message</li>
+        <li>Experiments with sample sizes stated up front</li>
+        <li>A weekly report a founder can act on</li>
+      </ul>
+      <a class="link-arrow" href="#proof">See the analytics work</a>
+    </article>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools" class="section">
+  <header class="sec-head">
+    <p class="sec-no">05<span>Tools</span></p>
+    <h2>Tools I've <em>actually used.</em></h2>
+    <p class="sub">Only tools that appear in the work above, grouped by the job they did.</p>
+  </header>
+  <!-- TODO(anushka): add a proficiency tag (Daily / Proficient / Familiar) to each tool, then show it in a .lvl span -->
+  <div class="toolgrid">
+    <div class="tgroup">
+      <h3>Data &amp; enrichment</h3>
+      <ul>
+        <li><b>Clay</b><span>ICP matching, revenue lookups and enrichment tables in the capstone</span></li>
+        <li><b>Sumble</b><span>Organization and technology data; I compared its revenue figures with filings across 110 companies</span></li>
+        <li><b>Swan</b><span>Organization-level visitor identification, with person-level matches dropped at ingest</span></li>
+        <li><b>Octave</b><span>AI drafting. I tested it against approved wording and switched it off when it rewrote claims</span></li>
+      </ul>
+    </div>
+    <div class="tgroup">
+      <h3>CRM</h3>
+      <ul>
+        <li><b>HubSpot</b><span>System of record in the capstone: forms, contacts, tickets and tasks</span></li>
+        <li><b>Salesforce</b><span>Lead management certification</span></li>
+      </ul>
+    </div>
+    <div class="tgroup">
+      <h3>Automation &amp; code</h3>
+      <ul>
+        <li><b>Python</b><span>Forecasting models and the rules engine</span></li>
+        <li><b>Claude Code</b><span>Used to build, test and document the engine</span></li>
+        <li><b>Git &amp; GitHub Actions</b><span>Version control for rules and a scheduled run of the engine</span></li>
+        <li><b>.NET &amp; Angular</b><span>Production web applications at Nagarro</span></li>
+      </ul>
+    </div>
+    <div class="tgroup">
+      <h3>Analytics</h3>
+      <ul>
+        <li><b>SQL</b><span>Extracts across billing and revenue platforms; catalog database work</span></li>
+        <li><b>Power BI</b><span>Inventory and KPI dashboards for managers and stakeholders</span></li>
+        <li><b>Excel &amp; Google Sheets</b><span>Trackers, analysis and reporting</span></li>
+        <li><b>MS Access</b><span>Recurring reports at Orange Business Services</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
 
 <!-- ABOUT -->
 <section id="about" class="section">
