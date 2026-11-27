@@ -9,14 +9,24 @@
   const clamp = (a, b, x) => Math.max(a, Math.min(b, x));
   const safe = (fn) => { try { fn(); } catch (e) { console.warn("site:", e.message); } };
 
-  /* ---- Privacy-friendly analytics events (cookie-less). No-ops until a provider is added.
-     TODO(anushka): add the Plausible or GoatCounter script tag in <head>, then these events start flowing. ---- */
+  /* ---- Privacy-friendly analytics (GoatCounter: cookie-less, no consent banner needed).
+     1. Sign up free at https://www.goatcounter.com and pick a site code, e.g. "anushka".
+     2. Paste that code below. Page views and the click events start flowing; nothing loads while it is "". ---- */
+  const ANALYTICS_GOATCOUNTER_CODE = "";
+  if (ANALYTICS_GOATCOUNTER_CODE && !/^(localhost|127\.)/.test(location.hostname)) {
+    const gc = document.createElement("script");
+    gc.async = true;
+    gc.src = "https://gc.zgo.at/count.js";
+    gc.dataset.goatcounter = "https://" + ANALYTICS_GOATCOUNTER_CODE + ".goatcounter.com/count";
+    document.head.appendChild(gc);
+  }
   const track = (name) => { try { if (window.plausible) window.plausible(name); else if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: name, title: name, event: true }); } catch (e) {} };
   document.addEventListener("click", (e) => {
     const a = e.target.closest && e.target.closest("a,button");
     if (!a) return;
     if (a.matches('a[href^="mailto:"]')) track("Email click");
     else if (a.id === "copymail") track("Email copy");
+    else if (a.dataset.cta === "resume") track("Resume click");
     else if (a.id === "li") track("LinkedIn click");
     else if (a.id === "gh") track("GitHub click");
     else if (a.matches('a[href*="calendly"],a[href*="cal.com"]')) track("Book a call");

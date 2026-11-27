@@ -6,12 +6,32 @@ const CONFIG = {
   calendly: "",   // e.g. https://cal.com/yourname/30min
   linkedin: "https://www.linkedin.com/in/anushka-m-6a635a430/",
   github: "https://github.com/AnushkaMishra29",
-  // Capstone client is anonymised. Replace once you have written permission to name them.
-  clientName: "Tallpine",
   senderName: "the approver",
-  // Add quotes once you have written OK from the person. Section stays hidden while empty.
-  // { quote: "...", name: "Full Name", role: "Title, Organization" }
-  reviews: []
+  /* ---------------------------------------------------------------
+     TESTIMONIALS: paste one block per person, with their written OK.
+     The "Reviews" section stays hidden while this list is empty.
+       { quote: "Exact words.", name: "Full Name", role: "Title, Organization" },
+     --------------------------------------------------------------- */
+  reviews: [
+  ],
+
+  /* ---------------------------------------------------------------
+     CERTIFICATES shown in the Credentials list (after the ones written in index.html).
+     status: "done" (shows "Completed") or "progress" (shows "In progress").
+     link is optional: a verification URL; image is optional: a file in this folder.
+       { status: "done", title: "Clay inbound certification", note: "What it covers / what you built.", date: "Dec 2026", link: "https://..." },
+     --------------------------------------------------------------- */
+  certs: [
+    { status: "progress", title: "Clay outbound certification", note: "Building signal-based outbound workflows in Clay. I'll publish the result here when it is complete." }
+  ],
+
+  /* ---------------------------------------------------------------
+     VIDEOS (Loom, YouTube or Vimeo share links). Shown under the flagship case study.
+     The section stays hidden while this list is empty.
+       { title: "2-minute walkthrough of the inbound engine", url: "https://www.loom.com/share/XXXXXXXX" },
+     --------------------------------------------------------------- */
+  videos: [
+  ]
 };
 
 /* ---- Contact buttons ---- */
@@ -45,12 +65,60 @@ const CONFIG = {
   if(!CONFIG.reviews.length) return;
   const list=document.getElementById("review-list");
   CONFIG.reviews.forEach(r=>{
+    if(!r || !r.quote) return;
     const f=document.createElement("figure");f.className="review";f.style.margin=0;
     const p=document.createElement("p");p.textContent="“"+r.quote+"”";
-    const c=document.createElement("cite");c.textContent=r.name+(r.role?", "+r.role:"");
+    const c=document.createElement("cite");c.textContent=[r.name,r.role].filter(Boolean).join(", ");
     f.append(p,c);list.append(f);
   });
-  document.getElementById("reviews").classList.remove("hidden");
+  if(list.children.length) document.getElementById("reviews").classList.remove("hidden");
+})();
+
+/* ---- Extra certificates ---- */
+(function certs(){
+  const list=document.querySelector(".cred-list");
+  if(!list) return;
+  CONFIG.certs.forEach(c=>{
+    if(!c || !c.title) return;
+    const d=document.createElement("div");d.className="cred";
+    const st=document.createElement("p");st.className="state "+(c.status==="progress"?"progress":"shipped");
+    st.append(document.createElement("span"));st.append(c.status==="progress"?"In progress":"Completed");
+    const h=document.createElement("h3");h.textContent=c.title;
+    d.append(st,h);
+    const txt=[c.note,c.date&&("Issued "+c.date+".")].filter(Boolean).join(" ");
+    if(txt){const p=document.createElement("p");p.textContent=txt;d.append(p);}
+    if(c.link && c.link.indexOf("https://")===0){const p=document.createElement("p");const a=document.createElement("a");a.href=c.link;a.target="_blank";a.rel="noopener";a.textContent="Verify →";p.append(a);d.append(p);}
+    list.append(d);
+  });
+})();
+
+/* ---- Videos (hidden until configured) ---- */
+(function videos(){
+  const list=document.getElementById("video-list"), box=document.getElementById("videos");
+  if(!list||!box) return;
+  const embed=u=>{
+    let url; try { url=new URL(u); } catch(e) { return ""; }
+    if(url.protocol!=="https:") return "";
+    const host=url.hostname.replace(/^www./,""), parts=url.pathname.split("/").filter(Boolean);
+    if(host==="loom.com" && (parts[0]==="share"||parts[0]==="embed") && parts[1]) return "https://www.loom.com/embed/"+encodeURIComponent(parts[1]);
+    if(host==="youtube.com" && url.searchParams.get("v")) return "https://www.youtube-nocookie.com/embed/"+encodeURIComponent(url.searchParams.get("v"));
+    if(host==="youtu.be" && parts[0]) return "https://www.youtube-nocookie.com/embed/"+encodeURIComponent(parts[0]);
+    if(host==="vimeo.com" && /^[0-9]+$/.test(parts[0]||"")) return "https://player.vimeo.com/video/"+parts[0];
+    return "";
+  };
+  CONFIG.videos.forEach(v=>{
+    const src=v&&v.url?embed(v.url.trim()):"";
+    if(!src){ if(v&&v.url) console.warn("Unsupported video link:",v.url); return; }
+    const f=document.createElement("figure");f.className="video";
+    const w=document.createElement("div");w.className="video-frame";
+    const i=document.createElement("iframe");
+    i.src=src;i.title=v.title||"Walkthrough video";i.loading="lazy";i.allowFullscreen=true;
+    i.setAttribute("allow","fullscreen; picture-in-picture");i.referrerPolicy="strict-origin-when-cross-origin";
+    w.append(i);f.append(w);
+    if(v.title){const c=document.createElement("figcaption");c.textContent=v.title;f.append(c);}
+    list.append(f);
+  });
+  if(list.children.length) box.classList.remove("hidden");
 })();
 
 /* ---- Scroll reveal, counters, bars ---- */
@@ -116,7 +184,7 @@ function clock(day, hour) {
   return { start: DAYS[day] + " " + fmtHour(hour), due: DAYS[n] + " 5:00 PM", note: "In hours: due 5:00 PM the next business day." };
 }
 
-const LABEL = { demo: "a demo", briefing: "an executive briefing", contact: "getting in touch", partner: "a partnership", whitepaper: "our whitepaper", nda: "an NDA" };
+const LABEL = { demo: "demo request", briefing: "executive briefing request", contact: "message", partner: "partnership enquiry", whitepaper: "interest in our whitepaper", nda: "NDA request" };
 function makeDraft(type, name, co, r, msg) {
   const first = (name || "there").trim().split(/\s+/)[0];
   const ask = r.briefing
@@ -124,8 +192,8 @@ function makeDraft(type, name, co, r, msg) {
     : "If it helps, I can point you to the right resource. Just tell me what you are trying to solve.";
   const q = msg && msg.trim() ? "[Reviewer: answer their question in their own terms. They wrote: " + msg.trim() + "]" : "[Reviewer: add a personal line]";
   const nda = type === "nda" ? "\n\nOn the NDA: I have passed this to the right person and will confirm next steps." : "";
-  return "Hi " + first + ",\n\nThank you for " + LABEL[type] + " at " + CONFIG.clientName + ".\n\n" + q + "\n\n" +
-    CONFIG.clientName + " is a management system for AI value realization: every initiative runs through gates that can refuse, and each one ends in a number Finance signs." + nda + "\n\n" + ask + "\n\nBest regards,\n[Sender: the person who sends this reply]";
+  return "Hi " + first + ",\n\nThank you for your " + LABEL[type] + ".\n\n" + q + "\n\n" +
+    "We offer a management system for AI value realization: every initiative runs through gates that can refuse, and each one ends in a number Finance signs." + nda + "\n\n" + ask + "\n\nBest regards,\n[Sender: the person who sends this reply]";
 }
 
 /* Claims linter: fails closed. Invented blocklist mirroring the real rules' shape. */
@@ -155,6 +223,14 @@ function resetSteps() {
   $("status").textContent = "";
   $("approve").disabled = false;
   $("approve").dataset.done = "";
+  lockSend();
+}
+/* Guardrail: approval never survives an edit or a new run, and sending is only possible right after a clean approval. */
+function lockSend() {
+  const s = $("send");
+  s.disabled = true;
+  s.textContent = "Send (human only)";
+  s.onclick = null;
 }
 const wait = ms => new Promise(r => setTimeout(r, reduce ? 0 : ms));
 let running = 0;
@@ -200,7 +276,12 @@ $("enq").addEventListener("submit", async ev => {
   $("status").textContent = "Your turn as the approver: replace the [Reviewer] and [Sender] slots, then approve. Try typing a price or \"SOC 2\" to trip the linter.";
 });
 
-$("draft").addEventListener("input", () => { $("status").textContent = ""; $("approve").dataset.done = ""; });
+$("draft").addEventListener("input", () => {
+  $("approve").dataset.done = "";
+  if (!$("send").disabled || $("send").onclick) $("status").textContent = "Draft edited: the earlier approval is void. Re-run the linter and approve again.";
+  else $("status").textContent = "";
+  lockSend();
+});
 $("relint").addEventListener("click", () => {
   const blocking = showLint();
   $("status").textContent = blocking.length ? "Fix the flagged wording, then re-run." : "Linter passed.";
@@ -215,5 +296,10 @@ $("approve").addEventListener("click", () => {
   $("status").textContent = "Approved at " + new Date().toLocaleTimeString() + ". Approval is not the same as sent: the person sends from their own mailbox and the send is timestamped separately.";
   $("send").disabled = false;
   $("send").textContent = "Mark as sent (by a person)";
-  $("send").onclick = () => { $("status").textContent = "Marked sent at " + new Date().toLocaleTimeString() + ". The engine never sends email."; $("send").disabled = true; };
+  $("send").onclick = () => {
+    const again = lint($("draft").value);
+    if (again.length) { lockSend(); $("status").textContent = "Blocked at send: " + again[0] + "."; return; }
+    $("status").textContent = "Marked sent at " + new Date().toLocaleTimeString() + ". The engine never sends email.";
+    $("send").disabled = true;
+  };
 });

@@ -431,3 +431,19 @@ h1 em,h2 em,.demo-title em{color:var(--ink)}
 .feat-shot{margin:0 0 18px}
 .feat-shot img{display:block;width:100%;max-width:640px;height:auto;border-radius:10px;border:1px solid var(--line);transition:transform .3s}
 .feat-shot a:hover img{transform:translateY(-3px)}
+
+/* Outbound slot: honest "in progress" card in the Work section */
+.case-soon{display:grid;grid-template-columns:minmax(120px,.28fr) 1fr;gap:12px clamp(20px,4vw,56px);align-items:start;padding:clamp(24px,3vw,40px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.case-soon h3{font:400 clamp(24px,2.4vw,34px)/1.1 var(--serif);letter-spacing:-.01em;margin:0 0 8px}
+.case-soon p{margin:0;color:var(--muted);font-size:16.5px;max-width:46em}
+.case-soon p.state{color:var(--warn)}
+@media (max-width:860px){.case-soon{grid-template-columns:1fr}}
+
+/* Videos (Loom etc.), shown only when CONFIG.videos has entries */
+.videos{margin-top:22px}
+.videos h4{font:600 13px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin:0 0 12px}
+.video-list{display:grid;gap:18px}
+.video{margin:0}
+.video-frame{position:relative;aspect-ratio:16/9;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#000}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video figcaption{margin-top:8px;font-size:14.5px;color:var(--muted)}

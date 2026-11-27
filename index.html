@@ -23,9 +23,7 @@
 <link rel="preload" href="fonts/serif.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add("js")</script>
 <link rel="stylesheet" href="site.css">
-<!-- TODO(anushka): privacy-friendly, cookie-less analytics. Add ONE of these once you have an account (no cookie banner needed):
-     <script defer data-domain="anushkamishra29.github.io" src="https://plausible.io/js/script.tagged-events.js"></script>
-     <script data-goatcounter="https://YOURCODE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> -->
+<!-- Analytics: cookie-less GoatCounter, loaded by site.js once ANALYTICS_GOATCOUNTER_CODE is set at the top of site.js. -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Anushka Mishra","jobTitle":"GTM Engineer","url":"https://anushkamishra29.github.io/","image":"https://anushkamishra29.github.io/photo.jpg","address":{"@type":"PostalAddress","addressLocality":"Delhi","addressCountry":"IN"},"sameAs":["https://www.linkedin.com/in/anushka-m-6a635a430/","https://github.com/AnushkaMishra29","https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5160444"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"IIM Indore"},{"@type":"CollegeOrUniversity","name":"IIT Indore"}],"knowsAbout":["GTM engineering","Revenue operations","Lead routing","Demand forecasting","Clay","HubSpot","Python","SQL"]}
 </script>
@@ -59,6 +57,7 @@
       <div class="cta-row">
         <a class="btn" href="mailto:ianushkamishra29@gmail.com">Email me</a>
         <a class="btn btn-line" href="#proof">See the work</a>
+        <a class="btn btn-line" href="AnushkaMishra_GTM_Engineer_Resume.pdf" target="_blank" rel="noopener" data-cta="resume">Resume (PDF)</a>
       </div>
     </div>
     <figure class="portrait">
@@ -101,11 +100,7 @@
         <h3>Lead management in Salesforce</h3>
         <p>Salesforce. How leads are captured, qualified, assigned and converted, the same lifecycle my routing and reply-clock rules automate.</p>
       </div>
-      <div class="cred">
-        <p class="state progress"><span></span>In progress</p>
-        <h3>Clay outbound certification</h3>
-        <p>Building signal-based outbound workflows in Clay. I'll publish the result here when it is complete.</p>
-      </div>
+      <!-- More certificates (Clay outbound, Clay inbound, ...) are added in app.js, CONFIG.certs. Nothing to edit here. -->
     </div>
   </div>
   <aside class="featured" aria-label="Featured in GTM Engineer School Pulse #50">
@@ -123,7 +118,14 @@
   </aside>
 </section>
 
-<!-- TODO(anushka): add a Reviews section here once you have real, permitted testimonials -->
+<!-- REVIEWS: hidden until CONFIG.reviews in app.js has at least one entry -->
+<section id="reviews" class="section hidden">
+  <header class="sec-head">
+    <p class="sec-no">&#9733;<span>Reviews</span></p>
+    <h2>What people <em>say.</em></h2>
+  </header>
+  <div class="reviews" id="review-list"></div>
+</section>
 
 <!-- HOW I BUILD + TRY IT -->
 <section id="how" class="section">
@@ -231,7 +233,7 @@
   </header>
 
   <article class="case flagship" id="case-engine">
-    <div class="case-metric"><b>1 day</b><span>reply deadline the engine enforces, with an alarm if it is missed</span></div>
+    <div class="case-metric"><b>110</b><span>companies whose Sumble revenue figures I checked against filings before relying on them</span></div>
     <div class="case-body">
       <p class="tag">Flagship &middot; Inbound</p>
       <h3>An inbound engine with guardrails</h3>
@@ -242,8 +244,10 @@
       </dl>
       <ul class="chips"><li>Python</li><li>Clay</li><li>HubSpot</li><li>Sumble</li><li>Swan</li><li>GitHub Actions</li></ul>
       <details class="how"><summary>Guardrails &amp; edge cases</summary><p>Do-not-contact companies, vendors and partners are screened out before anything is drafted. Wording comes from approved copy, and a claims linter blocks prices, guarantees and unverified claims. It fails closed: if its blocklist is missing, nothing is marked clean. The engine never sends. A person approves every reply, and approval and sending are timestamped separately.</p></details>
-      <details class="how"><summary>How this was measured</summary><p><b>1 business day:</b> a design target, not a measured outcome. The reply clock gives every enquiry a deadline of 17:00 Pacific on the next business day and fires an alarm if it is missed. The engine was validated on invented enquiries; the client's site had no live inbound volume yet.</p></details>
-      <!-- TODO(anushka): add "What I'd do next" (2-3 honest bullets) and an architecture diagram or a Loom walkthrough when ready -->
+      <details class="how"><summary>How this was measured</summary><p><b>110 companies:</b> I compared Sumble's revenue figures with company filings across 110 companies. <b>Reply clock:</b> a design target, not a measured outcome. Every enquiry gets a deadline of 17:00 Pacific on the next business day, and an alarm fires if it is missed. The engine was validated on invented enquiries; the client's site had no live inbound volume yet.</p></details>
+      <!-- VIDEOS: hidden until CONFIG.videos in app.js has at least one entry -->
+      <div id="videos" class="videos hidden"><h4>Watch the walkthrough</h4><div id="video-list" class="video-list"></div></div>
+      <!-- TODO(anushka): add the finding of the 110-company check (e.g. how many figures matched within X%), "What I'd do next" (2-3 honest bullets) and an architecture diagram or a Loom walkthrough when ready -->
     </div>
   </article>
 
@@ -296,6 +300,37 @@
       <!-- TODO(anushka): add hours per report before and after, if you have them -->
     </div>
   </article>
+
+  <!-- OUTBOUND SLOT (in progress). When the outbound build is done:
+       1. Delete the <aside class="case-soon"> below.
+       2. Uncomment the <article> template under it and fill every field with real numbers.
+       3. Change the "Four systems" line above to "Five systems", change the Outbound lane to "Shipped"
+          (class "state shipped", text "Shipped") and delete its ".plan" line.
+  -->
+  <aside class="case-soon" id="case-outbound">
+    <p class="state progress"><span></span>In progress</p>
+    <div>
+      <h3>Signal-based outbound in Clay</h3>
+      <p>Signal-driven list building, fit scoring, an enrichment waterfall with cost per record, and sequences a person approves before they go out. The full case study, with measured results, will be published here when the build is complete.</p>
+    </div>
+  </aside>
+  <!--
+  <article class="case" id="case-outbound-done">
+    <div class="case-metric"><b>XX</b><span>ONE MEASURED OUTCOME (e.g. cost per qualified record, reply rate, records enriched)</span></div>
+    <div class="case-body">
+      <p class="tag">Outbound &middot; Clay</p>
+      <h3>TITLE: the outcome, not the tool</h3>
+      <p class="lens">GTM lens: one line.</p>
+      <dl>
+        <dt>Problem</dt><dd>...</dd>
+        <dt>Built</dt><dd>...</dd>
+        <dt>Result</dt><dd class="result">...</dd>
+      </dl>
+      <ul class="chips"><li>Clay</li></ul>
+      <details class="how"><summary>How this was measured</summary><p>Sample size, period, how the number was calculated.</p></details>
+    </div>
+  </article>
+  -->
 </section>
 
 <!-- WHAT I CAN OWN -->
@@ -324,7 +359,8 @@
         <li>Enrichment waterfalls with cost per record</li>
         <li>Sequences a person approves before they go out</li>
       </ul>
-      <p class="plan">Planned build. I am working through the Clay outbound certification.</p>
+      <p class="plan">Build in progress. I am working through the Clay outbound certification.</p>
+      <a class="link-arrow" href="#case-outbound">See the status</a>
     </article>
     <article class="lane">
       <p class="state next"><span></span>Next</p>
@@ -419,7 +455,8 @@
     <div class="cta-row">
       <a class="btn btn-accent" id="mail" href="mailto:ianushkamishra29@gmail.com">Email me</a>
       <!-- TODO(anushka): add a Book a 30-min call button once you have a Cal.com/Calendly link -->
-      <a class="btn btn-line-inv" id="li" href="https://www.linkedin.com/in/anushka-m-6a635a430/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-line-inv" href="AnushkaMishra_GTM_Engineer_Resume.pdf" target="_blank" rel="noopener" data-cta="resume">Resume (PDF)</a>
+      <a class="btn btn-line-inv" id="li"href="https://www.linkedin.com/in/anushka-m-6a635a430/" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn btn-line-inv" id="gh" href="https://github.com/AnushkaMishra29" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>

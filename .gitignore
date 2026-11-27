@@ -1,4 +1,5 @@
 *.pdf
+!AnushkaMishra_GTM_Engineer_Resume.pdf
 .claude/
 GES-C5-*.png
 WhatsApp*
